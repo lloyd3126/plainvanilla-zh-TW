@@ -1,27 +1,35 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <title>Plain Vanilla - Applications</title>
+    <title>製作互動網站｜Plain Vanilla zh-TW</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="An explainer for developing single-page applications using only vanilla techniques.">
+    <meta name="description"
+        content="An explainer for developing single-page applications using only vanilla techniques.">
     <link rel="icon" href="../favicon.ico">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <link rel="stylesheet" href="../index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <noscript><strong>Please enable JavaScript to view this page correctly.</strong></noscript>
     <script type="module" src="../index.js"></script>
     <header>
-        <h1>Plain Vanilla Applications</h1>
+        <h1>Plain Vanilla zh-TW</h1>
         <nav>
             <ol>
-                <li><a href="../index.html">Welcome</a></li>
-                <li><a href="components.html">Components</a></li>
-                <li><a href="styling.html">Styling</a></li>
-                <li><a href="sites.html">Sites</a></li>
-                <li>Applications</li>
-                <li><a href="../blog/">Blog</a></li>
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="components.html">如何建立元件</a></li>
+                <li><a href="styling.html">如何設定樣式</a></li>
+                <li><a href="sites.html">製作一般網站</a></li>
+                <li>製作互動網站</li>
+                <li><a href="../blog/">網誌</a></li>
             </ol>
         </nav>
     </header>
@@ -29,16 +37,20 @@
         <section id="project">
             <a href="#project" class="section-anchor">#</a>
             <h2>Project</h2>
-            <p>When richer interactivity and dynamic state are needed, a single-page application is often a better fit than a multi-page website.</p>
+            <p>When richer interactivity and dynamic state are needed, a single-page application is often a better fit
+                than a multi-page website.</p>
 
-            <p>The suggested project layout for single-page applications is the same as for multi-page sites, except:</p>
+            <p>The suggested project layout for single-page applications is the same as for multi-page sites, except:
+            </p>
             <dl>
                 <dt>/public/pages</dt>
                 <dd>As there is only <code>index.html</code> there is no need for the pages folder.</dd>
                 <dt>/public/app</dt>
-                <dd>All of the views and routes for the application are in this folder, each implemented as a web component, and registered in <code>index.js</code>.</dd>
+                <dd>All of the views and routes for the application are in this folder, each implemented as a web
+                    component, and registered in <code>index.js</code>.</dd>
                 <dt>/public/app/App.js</dt>
-                <dd>As in the major frameworks, the application is bootstrapped from an App component. See the example below.</dd>
+                <dd>As in the major frameworks, the application is bootstrapped from an App component. See the example
+                    below.</dd>
             </dl>
         </section>
         <section id="routing">
@@ -48,15 +60,19 @@
             <p>Without the assistance of a server to do routing, the only option is hash-based routing:</p>
             <ul>
                 <li>The current route is in <code>window.location.hash</code>, e.g. <code>#/about</code>.</li>
-                <li>The route's changes are detected by listening to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event">Window hashchange event</a>.</li>
+                <li>The route's changes are detected by listening to the <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Window/hashchange_event">Window
+                        hashchange event</a>.</li>
                 <li>Each web component is shown or hidden based on the active route.</li>
             </ul>
             <p>This behavior can be encapsulated in a routing web component:</p>
-            <x-code-viewer src="./examples/applications/single-page/components/route/route.js" name="components/route/route.js"></x-code-viewer>
+            <x-code-viewer src="./examples/applications/single-page/components/route/route.js"
+                name="components/route/route.js"></x-code-viewer>
 
             <p>An example single-page vanilla application that uses this routing component:</p>
 
-            <iframe src="./examples/applications/single-page/index.html" title="single-page application" height="400"></iframe>
+            <iframe src="./examples/applications/single-page/index.html" title="single-page application"
+                height="400"></iframe>
 
             <x-tab-panel>
                 <x-tab title="index.html" active>
@@ -69,23 +85,28 @@
                     <x-code-viewer src="./examples/applications/single-page/index.js" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="App.js">
-                    <x-code-viewer src="./examples/applications/single-page/app/App.js" name="app/App.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/applications/single-page/app/App.js"
+                        name="app/App.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="route.js">
-                    <x-code-viewer src="./examples/applications/single-page/components/route/route.js" name="components/route/route.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/applications/single-page/components/route/route.js"
+                        name="components/route/route.js"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
 
             <p>It makes use of the template pattern to avoid showing a broken application if scripting is disabled.</p>
 
-            <p>Adding additional route components to the <code>/app</code> folder is left as an exercise for the reader.</p>
+            <p>Adding additional route components to the <code>/app</code> folder is left as an exercise for the reader.
+            </p>
 
             <aside>
                 <h3>About Search Engines</h3>
                 <p>
-                    The hash-based routing approach is effectively invisible to search engines. Only the initial route will be indexed.
+                    The hash-based routing approach is effectively invisible to search engines. Only the initial route
+                    will be indexed.
                     For this reason this approach is not suited to sites that have SEO concerns.
-                    Every route that must be discoverable through a search engine should use the multi-file approach explained on the Sites page.
+                    Every route that must be discoverable through a search engine should use the multi-file approach
+                    explained on the Sites page.
                 </p>
             </aside>
 
@@ -94,22 +115,30 @@
             <a href="#entity-encoding" class="section-anchor">#</a>
             <h2>Entity encoding</h2>
             <p>
-                A real-world application will often have complex markup in the web components, filled with variables based on user input.
-                This creates a risk for <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html">Cross-Site Scripting</a>.
-                In fact, eagle-eyed readers may have noticed in the <a href="components.html#passing-data">Passing Data example</a> of the Components page that a XSS bug snuck in.
-                By entering the following as a name, the output of <code>list.js</code> would have code injected:<br><code>&lt;button onclick="alert('gotcha')"&gt;oops&lt;/button&gt;</code>
+                A real-world application will often have complex markup in the web components, filled with variables
+                based on user input.
+                This creates a risk for <a
+                    href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html">Cross-Site
+                    Scripting</a>.
+                In fact, eagle-eyed readers may have noticed in the <a href="components.html#passing-data">Passing Data
+                    example</a> of the Components page that a XSS bug snuck in.
+                By entering the following as a name, the output of <code>list.js</code> would have code
+                injected:<br><code>&lt;button onclick="alert('gotcha')"&gt;oops&lt;/button&gt;</code>
             </p>
             <p>Go ahead and return to that page to try it ...</p>
             <p>
-                To solve this we need to encode dangerous HTML entities while plugging variables into HTML markup, something frameworks often do automatically in their templating layer.
+                To solve this we need to encode dangerous HTML entities while plugging variables into HTML markup,
+                something frameworks often do automatically in their templating layer.
                 This <code>html``</code> literal function can be used to do this automatically in a vanilla codebase:
             </p>
             <x-code-viewer src="../lib/html.js"></x-code-viewer>
             <p>
                 The reworked <code>list.js</code> that uses this:
             </p>
-            <x-code-viewer src="./examples/components/data/components/list-safe.js" name="components/list.js"></x-code-viewer>
-            <p>To learn more on using this function, check the <a href="https://github.com/jsebrech/html-literal">html-literal documentation</a>.</p>
+            <x-code-viewer src="./examples/components/data/components/list-safe.js"
+                name="components/list.js"></x-code-viewer>
+            <p>To learn more on using this function, check the <a
+                    href="https://github.com/jsebrech/html-literal">html-literal documentation</a>.</p>
         </section>
         <section id="managing-state">
             <a href="#managing-state" class="section-anchor">#</a>
@@ -124,7 +153,8 @@
             <p>
                 In web frameworks state is often carefully managed so that it lives outside of the DOM,
                 and then rendered into the DOM using a view layer.
-                Every time the state is modified, the view layer rerenders the current view based on the new state, updating the DOM behind the scenes to match the new view.
+                Every time the state is modified, the view layer rerenders the current view based on the new state,
+                updating the DOM behind the scenes to match the new view.
                 In this design the DOM is just a view on the state, but does not actually contain the state.
             </p>
             <p>
@@ -144,50 +174,70 @@
                     <x-code-viewer src="./examples/applications/counter/index.js" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="counter.js" active>
-                    <x-code-viewer src="./examples/applications/counter/components/counter.js" name="components/counter.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/applications/counter/components/counter.js"
+                        name="components/counter.js"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
 
             <p>
                 The <code>&lt;x-counter&gt;</code> component carries its state in the <code>#count</code> property,
-                it provides an API for safely changing the state with the <code>increment()</code> method, 
+                it provides an API for safely changing the state with the <code>increment()</code> method,
                 and it always updates its appearance when the state is changed using the <code>update()</code> method.
             </p>
 
             <h3>Lifting state up</h3>
             <p>
                 Putting state inside of web components as attributes and properties at first can seem simple,
-                but when scaling this up to more complex hierarchies of components it quickly becomes difficult to manage.
+                but when scaling this up to more complex hierarchies of components it quickly becomes difficult to
+                manage.
                 This means care must be taken to organize state across the component hierarchy in the right way.
             </p>
             <p>
-                Generally speaking, the <a href="https://react.dev/learn/choosing-the-state-structure">state management principles</a> laid out in the React documentation are sound and should be followed even for vanilla web development.
+                Generally speaking, the <a href="https://react.dev/learn/choosing-the-state-structure">state management
+                    principles</a> laid out in the React documentation are sound and should be followed even for vanilla
+                web development.
                 Here they are once again:
             </p>
             <ol>
-                <li><strong>Group related state.</strong> If you always update two or more state variables at the same time, consider merging them into a single state variable.</li>
-                <li><strong>Avoid contradictions in state.</strong> When the state is structured in a way that several pieces of state may contradict and “disagree” with each other, you leave room for mistakes. Try to avoid this.</li>
-                <li><strong>Avoid redundant state.</strong> If you can calculate some information from the component's attributes or properties during rendering, you should not put that information into that component's state.</li>
-                <li><strong>Avoid duplication in state.</strong> When the same data is duplicated between multiple state variables, or within nested objects, it is difficult to keep them in sync. Reduce duplication when you can.</li>
-                <li><strong>Avoid deeply nested state.</strong> Deeply hierarchical state is not very convenient to update. When possible, prefer to structure state in a flat way.</li>
+                <li><strong>Group related state.</strong> If you always update two or more state variables at the same
+                    time, consider merging them into a single state variable.</li>
+                <li><strong>Avoid contradictions in state.</strong> When the state is structured in a way that several
+                    pieces of state may contradict and “disagree” with each other, you leave room for mistakes. Try to
+                    avoid this.</li>
+                <li><strong>Avoid redundant state.</strong> If you can calculate some information from the component's
+                    attributes or properties during rendering, you should not put that information into that component's
+                    state.</li>
+                <li><strong>Avoid duplication in state.</strong> When the same data is duplicated between multiple state
+                    variables, or within nested objects, it is difficult to keep them in sync. Reduce duplication when
+                    you can.</li>
+                <li><strong>Avoid deeply nested state.</strong> Deeply hierarchical state is not very convenient to
+                    update. When possible, prefer to structure state in a flat way.</li>
             </ol>
 
             <p>
-                Let's look at these principes in action by porting the React <a href="https://react.dev/learn/sharing-state-between-components">lifting state up tutorial</a> example application to vanilla code:
+                Let's look at these principes in action by porting the React <a
+                    href="https://react.dev/learn/sharing-state-between-components">lifting state up tutorial</a>
+                example application to vanilla code:
             </p>
 
-            <iframe src="./examples/applications/lifting-state-up/index.html" title="lifting state up example" height="400"></iframe>
+            <iframe src="./examples/applications/lifting-state-up/index.html" title="lifting state up example"
+                height="400"></iframe>
 
             <p>
-                The implementation is divided across two web components: <code>&lt;x-accordion&gt;</code> and <code>&lt;x-panel&gt;</code>.
-                The state is "lifted up" from the panels onto the accordion, so that the accordion carries the state for both panels in a single central place.
+                The implementation is divided across two web components: <code>&lt;x-accordion&gt;</code> and
+                <code>&lt;x-panel&gt;</code>.
+                The state is "lifted up" from the panels onto the accordion, so that the accordion carries the state for
+                both panels in a single central place.
             </p>
             <p>
-                Each of the two panels is stateless. It receives its state through the <code>title</code> and <code>active</code> properties.
-                When it is active, it shows its children (inside of a slot). When it is not active, it shows a button labeled "Show". It always shows the title.
+                Each of the two panels is stateless. It receives its state through the <code>title</code> and
+                <code>active</code> properties.
+                When it is active, it shows its children (inside of a slot). When it is not active, it shows a button
+                labeled "Show". It always shows the title.
             </p>
 
-            <x-code-viewer src="./examples/applications/lifting-state-up/components/panel.js" name="components/panel.js"></x-code-viewer>
+            <x-code-viewer src="./examples/applications/lifting-state-up/components/panel.js"
+                name="components/panel.js"></x-code-viewer>
 
             <p>
                 By contrast, the accordion is where the state for the panels actually lives:
@@ -203,64 +253,88 @@
                     <x-code-viewer src="./examples/applications/lifting-state-up/index.js" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="accordion.js" active>
-                    <x-code-viewer src="./examples/applications/lifting-state-up/components/accordion.js" name="components/accordion.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/applications/lifting-state-up/components/accordion.js"
+                        name="components/accordion.js"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
 
             <p>What to pay attention to:</p>
             <ul>
                 <li>
-                    The accordion's <code>activeIndex</code> property carries the state, and everything else is derived from that.
+                    The accordion's <code>activeIndex</code> property carries the state, and everything else is derived
+                    from that.
                     This property becomes the single source of truth for the application, avoiding redundant state.
                 </li>
                 <li>
-                    An event listener for the <code>show</code> event sent by a panel will set <code>activeIndex</code> to the right value.
-                    The property setter for <code>activeIndex</code> explicitly calls the <code>update()</code> method to bring the rest of the DOM in sync with the property's new state.
+                    An event listener for the <code>show</code> event sent by a panel will set <code>activeIndex</code>
+                    to the right value.
+                    The property setter for <code>activeIndex</code> explicitly calls the <code>update()</code> method
+                    to bring the rest of the DOM in sync with the property's new state.
                 </li>
             </ul>
             <p>
-                Finally, take a look at the original implementation of <em>Accordion</em> and <em>Panel</em> in React's tutorial:
+                Finally, take a look at the original implementation of <em>Accordion</em> and <em>Panel</em> in React's
+                tutorial:
             </p>
-            <x-code-viewer src="./examples/applications/lifting-state-up/react/App.js" name="App.js (React)"></x-code-viewer>
+            <x-code-viewer src="./examples/applications/lifting-state-up/react/App.js"
+                name="App.js (React)"></x-code-viewer>
             <p>
                 Take note of how the state is organized the same across the React and vanilla implementations.
-                The differences are in implementation details for state and rendering, not in how the application is structured.
+                The differences are in implementation details for state and rendering, not in how the application is
+                structured.
             </p>
 
             <aside>
                 <h4>Tread lightly</h4>
                 <p>
-                    In vanilla web development the components become part of the DOM hierarchy, instead of existing outside of the DOM and having changes applied to it automatically by the framework.
+                    In vanilla web development the components become part of the DOM hierarchy, instead of existing
+                    outside of the DOM and having changes applied to it automatically by the framework.
                     This means the application's state itself becomes part of the DOM.
                 </p>
                 <p>
-                    Because there is no framework patching the DOM with only the parts that changed, we have to tread lightly and only update the DOM when and where that is needed.
-                    Recreating too much of the DOM after a state change risks losing state or causing performance issues.
-                    Each web component in this example renders its fixed DOM structure once in <code>connectedCallback()</code> and then updates those DOM elements in the <code>update()</code> method when the state changes.
+                    Because there is no framework patching the DOM with only the parts that changed, we have to tread
+                    lightly and only update the DOM when and where that is needed.
+                    Recreating too much of the DOM after a state change risks losing state or causing performance
+                    issues.
+                    Each web component in this example renders its fixed DOM structure once in
+                    <code>connectedCallback()</code> and then updates those DOM elements in the <code>update()</code>
+                    method when the state changes.
                 </p>
             </aside>
 
             <h3>Passing data deeply</h3>
 
             <p>
-                While passing state deep into a hierarchy by handing it from parent components to child components via attributes or properties works,
-                it can quickly become verbose and inconvenient. This is especially the case if you have to pass those through many components in the middle
-                which have no need for that state aside from passing it to their child components, an anti-pattern colloquially known as "prop drilling".
+                While passing state deep into a hierarchy by handing it from parent components to child components via
+                attributes or properties works,
+                it can quickly become verbose and inconvenient. This is especially the case if you have to pass those
+                through many components in the middle
+                which have no need for that state aside from passing it to their child components, an anti-pattern
+                colloquially known as "prop drilling".
             </p>
             <p>
-                Again we can take inspiration from how popular frameworks like React organize state, by adapting the concept of a context.
-                A context holds state at a high level in the component hierarchy, and it can be accessed directly from anywhere in that hierarchy.
-                The whole concept of a context is explained in the React <a href="https://react.dev/learn/passing-data-deeply-with-context">passing data deeply tutorial</a>.
+                Again we can take inspiration from how popular frameworks like React organize state, by adapting the
+                concept of a context.
+                A context holds state at a high level in the component hierarchy, and it can be accessed directly from
+                anywhere in that hierarchy.
+                The whole concept of a context is explained in the React <a
+                    href="https://react.dev/learn/passing-data-deeply-with-context">passing data deeply tutorial</a>.
             </p>
             <p>
-                To understand how to apply this concept in vanilla web development let us look at the ThemeContext example from the <a href="https://react.dev/reference/react/useContext">useContext documentation page</a>.
-                Here is an adapted vanilla version that uses a central context to keep track of light or dark theme, toggled by a button.
+                To understand how to apply this concept in vanilla web development let us look at the ThemeContext
+                example from the <a href="https://react.dev/reference/react/useContext">useContext documentation
+                    page</a>.
+                Here is an adapted vanilla version that uses a central context to keep track of light or dark theme,
+                toggled by a button.
             </p>
 
-            <iframe src="./examples/applications/passing-data-deeply/index.html" title="passing data deeply example" height="200"></iframe>
+            <iframe src="./examples/applications/passing-data-deeply/index.html" title="passing data deeply example"
+                height="200"></iframe>
 
             <p>
-                In this example a special web component <code>&lt;x-theme-context&gt;</code> is created, whose only job is to keep track of state, provide setters to update that state, and dispatch events when the state changes.
+                In this example a special web component <code>&lt;x-theme-context&gt;</code> is created, whose only job
+                is to keep track of state, provide setters to update that state, and dispatch events when the state
+                changes.
             </p>
 
             <x-tab-panel>
@@ -274,51 +348,67 @@
                     <x-code-viewer src="./examples/applications/passing-data-deeply/index.js" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="theme-context.js">
-                    <x-code-viewer src="./examples/applications/passing-data-deeply/components/theme-context.js" name="components/theme-context.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/applications/passing-data-deeply/components/theme-context.js"
+                        name="components/theme-context.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="tiny-context.js">
-                    <x-code-viewer src="./examples/applications/passing-data-deeply/lib/tiny-context.js" name="lib/tiny-context.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/applications/passing-data-deeply/lib/tiny-context.js"
+                        name="lib/tiny-context.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="panel.js">
-                    <x-code-viewer src="./examples/applications/passing-data-deeply/components/panel.js" name="components/panel.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/applications/passing-data-deeply/components/panel.js"
+                        name="components/panel.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="button.js">
-                    <x-code-viewer src="./examples/applications/passing-data-deeply/components/button.js" name="components/button.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/applications/passing-data-deeply/components/button.js"
+                        name="components/button.js"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
 
             <p>Some key take-aways:</p>
             <ul>
                 <li>
-                    The <code>x-theme-context</code> component applies the <a href="https://github.com/webcomponents-cg/community-protocols/blob/main/proposals/context.md">context protocol</a>, a convention for how web components can implement a context pattern.
-                    It does this by making use of a minimal implementation of the protocol provided in <code>tiny-context.js</code>.
+                    The <code>x-theme-context</code> component applies the <a
+                        href="https://github.com/webcomponents-cg/community-protocols/blob/main/proposals/context.md">context
+                        protocol</a>, a convention for how web components can implement a context pattern.
+                    It does this by making use of a minimal implementation of the protocol provided in
+                    <code>tiny-context.js</code>.
                 </li>
                 <li>
                     The context component also uses <code>display: contents</code> to avoid impacting the layout.
                     It exists in the DOM hierarchy, but it becomes effectively invisible.
                 </li>
                 <li>
-                    Instead of <code>useContext</code> every component obtains the nearest theme context by dispatching a <code>context-request</code> event,
-                    whose callback will be answered by the nearest provider higher up in the DOM that provides the asked for context.
+                    Instead of <code>useContext</code> every component obtains the nearest theme context by dispatching
+                    a <code>context-request</code> event,
+                    whose callback will be answered by the nearest provider higher up in the DOM that provides the asked
+                    for context.
                     By passing <code>true</code> as the subscribe parameter the components can subscribe to updates.
                 </li>
                 <li>
-                    The <code>theme-toggle</code> function is also provided to the button by the context component. This mechanism can be used for dependency injection across web components.
+                    The <code>theme-toggle</code> function is also provided to the button by the context component. This
+                    mechanism can be used for dependency injection across web components.
                 </li>
             </ul>
 
             <p>
-                The <a href="../blog/articles/2024-10-07-needs-more-context/">needs more context</a> article does a deeper dive into the context protocol and the tiny-context implementation of it.
+                The <a href="../blog/articles/2024-10-07-needs-more-context/">needs more context</a> article does a
+                deeper dive into the context protocol and the tiny-context implementation of it.
             </p>
-            
+
             <aside>
                 <h4>Challenge</h4>
                 <p>
-                    This approach can be further extended to implement the reactive concept of reducers, by adding them as a method on a context component
-                    and updating the state through the setters, dispatching the necessary events to update the component hierarchy.
+                    This approach can be further extended to implement the reactive concept of reducers, by adding them
+                    as a method on a context component
+                    and updating the state through the setters, dispatching the necessary events to update the component
+                    hierarchy.
                 </p>
                 <p>
-                    To prove your mastery of vanilla web development use the techniques you've learned to port example 5 ("Scaling up with context and a reducer") from React's <a href="https://react.dev/reference/react/useContext">useContext</a> documentation page to vanilla code.
+                    To prove your mastery of vanilla web development use the techniques you've learned to port example 5
+                    ("Scaling up with context and a reducer") from React's <a
+                        href="https://react.dev/reference/react/useContext">useContext</a> documentation page to vanilla
+                    code.
                 </p>
             </aside>
         </section>
@@ -338,4 +428,5 @@
         <x-analytics></x-analytics>
     </footer>
 </body>
+
 </html>

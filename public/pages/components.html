@@ -1,27 +1,34 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <title>Plain Vanilla - Components</title>
+    <title>如何建立元件｜Plain Vanilla zh-TW</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="An explainer for doing web development with vanilla web components.">
     <link rel="icon" href="../favicon.ico">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <link rel="stylesheet" href="../index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <noscript><strong>Please enable JavaScript to view this page correctly.</strong></noscript>
     <script type="module" src="../index.js"></script>
     <header>
-        <h1>Plain Vanilla Components</h1>
+        <h1>Plain Vanilla zh-TW</h1>
         <nav>
             <ol>
-                <li><a href="../index.html">Welcome</a></li>
-                <li>Components</li>
-                <li><a href="styling.html">Styling</a></li>
-                <li><a href="sites.html">Sites</a></li>
-                <li><a href="applications.html">Applications</a></li>
-                <li><a href="../blog/">Blog</a></li>
+                <li><a href="../index.html">首頁</a></li>
+                <li>如何建立元件</li>
+                <li><a href="styling.html">如何設定樣式</a></li>
+                <li><a href="sites.html">製作一般網站</a></li>
+                <li><a href="applications.html">製作互動網站</a></li>
+                <li><a href="../blog/">網誌</a></li>
             </ol>
         </nav>
     </header>
@@ -32,30 +39,38 @@
                 What are they?
             </h2>
             <p>
-                <strong>Web Components</strong> are a set of technologies that allow us to extend 
-                the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">standard set of HTML elements</a> with additional elements.
+                <strong>Web Components</strong> are a set of technologies that allow us to extend
+                the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">standard set of HTML
+                    elements</a> with additional elements.
             </p>
             <p>
                 The three main technologies are:
             </p>
             <dl>
-                <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements">Custom elements</a></dt>
+                <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements">Custom
+                        elements</a></dt>
                 <dd>
-                    A way to extend HTML so that instead of having to build all our markup out of <code>&lt;div&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;span&gt;</code> and friends, 
+                    A way to extend HTML so that instead of having to build all our markup out of
+                    <code>&lt;div&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;span&gt;</code> and friends,
                     we can build with higher-level primitives.
                 </dd>
-                <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">Shadow DOM</a></dt>
+                <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM">Shadow
+                        DOM</a></dt>
                 <dd>
-                    Extending custom elements to have their own separate DOM, isolating complex behavior inside the element from the rest of the page.
+                    Extending custom elements to have their own separate DOM, isolating complex behavior inside the
+                    element from the rest of the page.
                 </dd>
-                <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots">HTML templates</a></dt>
+                <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots">HTML
+                        templates</a></dt>
                 <dd>
-                    Extending custom elements with reusable markup blocks using the <code>&lt;template&gt;</code> and <code>&lt;slot&gt;</code> tags, for quickly generating complex layouts.
+                    Extending custom elements with reusable markup blocks using the <code>&lt;template&gt;</code> and
+                    <code>&lt;slot&gt;</code> tags, for quickly generating complex layouts.
                 </dd>
             </dl>
             <p>
                 Those 3 bullets tell you everything and nothing at the same time.
-                This probably isn't the first tutorial on Web Components you've seen, and you may find them a confusing topic.
+                This probably isn't the first tutorial on Web Components you've seen, and you may find them a confusing
+                topic.
                 However, it's not that complicated as long as you build them up step by step ...
             </p>
         </section>
@@ -71,48 +86,64 @@
             <p>So what's happening here?</p>
             <p>We created a new HTML element, registered as the <code>x-hello-world</code> tag,
                 and used it on the page. When we did that, we got the following DOM structure:
-                <ul>
-                    <li>body (node)
-                        <ul>
-                            <li>x-hello-world (node)
-                                <ul>
-                                    <li>'hello world!' (textContent)</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <ul>
+                <li>body (node)
+                    <ul>
+                        <li>x-hello-world (node)
+                            <ul>
+                                <li>'hello world!' (textContent)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
             </p>
             <p>Explaining the code of the custom element line by line:</p>
             <dl>
                 <dt><code>class HelloWorldComponent extends HTMLElement {</code></dt>
-                <dd>Every custom element is a class extending <code>HTMLElement</code>. 
-                    In theory it's possible to extend other classes &ndash; like <code>HTMLButtonElement</code> to extend a <code>&lt;button&gt;</code> &ndash;
-                    but in practice this <a href="https://caniuse.com/mdn-api_customelementregistry_builtin_element_support">doesn't work yet in Safari</a>.</dd>
+                <dd>Every custom element is a class extending <code>HTMLElement</code>.
+                    In theory it's possible to extend other classes &ndash; like <code>HTMLButtonElement</code> to
+                    extend a <code>&lt;button&gt;</code> &ndash;
+                    but in practice this <a
+                        href="https://caniuse.com/mdn-api_customelementregistry_builtin_element_support">doesn't work
+                        yet in Safari</a>.</dd>
                 <dt><code>connectedCallback() {</code></dt>
                 <dd>
                     This method is called when our element is added to the DOM,
                     which means the element is ready to make DOM updates.
-                    Note that it may be called multiple times when the element or one of its ancestors is moved around the DOM.
+                    Note that it may be called multiple times when the element or one of its ancestors is moved around
+                    the DOM.
                 </dd>
                 <dt><code>this.textContent = 'hello world!';</code></dt>
-                <dd>The <code>this</code> in this case refers to our element, which has the full <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement">HTMLElement</a> API,
-                    including its ancestors <code>Element</code> and <code>Node</code>, on which we can find the <code>textContent</code> property,
-                    which is used to add the <code>'hello world!'</code> string to the DOM.</dd>
+                <dd>The <code>this</code> in this case refers to our element, which has the full <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement">HTMLElement</a> API,
+                    including its ancestors <code>Element</code> and <code>Node</code>, on which we can find the
+                    <code>textContent</code> property,
+                    which is used to add the <code>'hello world!'</code> string to the DOM.
+                </dd>
                 <dt><code>customElements.define('x-hello-world', HelloWorldComponent);</code></dt>
-                <dd>For every web component <code>window.customElements.define</code> must be called once to register the custom element's class and associate it with a tag.
-                    After this line is called the custom element becomes available for use in HTML markup, and existing uses of it in already rendered markup will have their constructors called.</dd>
+                <dd>For every web component <code>window.customElements.define</code> must be called once to register
+                    the custom element's class and associate it with a tag.
+                    After this line is called the custom element becomes available for use in HTML markup, and existing
+                    uses of it in already rendered markup will have their constructors called.</dd>
             </dl>
             <aside>
                 <h3>Why is it named <code>x-hello-world</code> instead of <code>hello-world</code>?</h3>
                 <p>
-                There are <a href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name">custom element tag naming rules</a>, in particular that the name must start with a lowercase letter and contain a dash.
-                On top of that, all tags take part in a global namespace, where there is always a risk of conflicting naming.
-                While <code>hello-world</code> would also be a valid name, in general it is best to start all custom element tag names with a unique prefix of your choice. On this site the placeholder prefix <code>x-</code> was chosen.
+                    There are <a
+                        href="https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name">custom
+                        element tag naming rules</a>, in particular that the name must start with a lowercase letter and
+                    contain a dash.
+                    On top of that, all tags take part in a global namespace, where there is always a risk of
+                    conflicting naming.
+                    While <code>hello-world</code> would also be a valid name, in general it is best to start all custom
+                    element tag names with a unique prefix of your choice. On this site the placeholder prefix
+                    <code>x-</code> was chosen.
                 </p>
                 <p>
-                Another gotcha is that custom element tags cannot be self-closing.
-                So <code>&lt;x-hello-world&gt;&lt;/x-hello-world&gt;</code> is ok, but <code>&lt;x-hello-world /&gt;</code> is not.
+                    Another gotcha is that custom element tags cannot be self-closing.
+                    So <code>&lt;x-hello-world&gt;&lt;/x-hello-world&gt;</code> is ok, but
+                    <code>&lt;x-hello-world /&gt;</code> is not.
                 </p>
             </aside>
         </section>
@@ -126,27 +157,40 @@
                 <li>Adding DOM elements as children to allow for richer content.</li>
                 <li>Passing in attributes, and updating the DOM based on changes in those attributes.</li>
                 <li>Styling the element, preferably in a way that's isolated and scales nicely.</li>
-                <li>Defining all custom elements from a central place, instead of dumping random script tags in the middle of our markup.</li>
+                <li>Defining all custom elements from a central place, instead of dumping random script tags in the
+                    middle of our markup.</li>
             </ul>
             <p>
-                To illustrate a way to do those things with custom elements, here's a custom element <code>&lt;x-avatar&gt;</code> that implements
-                a simplified version of the <a href="https://nextui.org/docs/components/avatar">NextUI Avatar component</a> (React):
+                To illustrate a way to do those things with custom elements, here's a custom element
+                <code>&lt;x-avatar&gt;</code> that implements
+                a simplified version of the <a href="https://nextui.org/docs/components/avatar">NextUI Avatar
+                    component</a> (React):
             </p>
 
-            <iframe src="./examples/components/advanced/simple.html" title="avatar component example" height="70"></iframe>
-            <x-code-viewer src="./examples/components/advanced/components/avatar.js" name="components/avatar.js"></x-code-viewer>
+            <iframe src="./examples/components/advanced/simple.html" title="avatar component example"
+                height="70"></iframe>
+            <x-code-viewer src="./examples/components/advanced/components/avatar.js"
+                name="components/avatar.js"></x-code-viewer>
             <p>Some key elements that have changed:</p>
             <ul>
-                <li>The <code>observedAttributes</code> getter returns the element's attributes that when changed cause <code>attributeChangedCallback()</code> to be called by the browser, allowing us to update the UI.</li>
-                <li>
-                    The <code>connectedCallback</code> method is written in the assumption that it will be called multiple times.
-                    This method is in fact called when the element is first added to the DOM, but also when it is moved around.
+                <li>The <code>observedAttributes</code> getter returns the element's attributes that when changed cause
+                    <code>attributeChangedCallback()</code> to be called by the browser, allowing us to update the UI.
                 </li>
                 <li>
-                    The <code>update()</code> method handles initial render as well as updates, centralizing the UI logic.
-                    Note that this method is written in a defensive way with the <code>if</code> statement, because it may be called from the <code>attributeChangedCallback()</code> method before <code>connectedCallback()</code> creates the <code>&lt;img&gt;</code> element.
+                    The <code>connectedCallback</code> method is written in the assumption that it will be called
+                    multiple times.
+                    This method is in fact called when the element is first added to the DOM, but also when it is moved
+                    around.
                 </li>
-                <li>The exported <code>registerAvatarComponent</code> function allows centralizing the logic that defines all custom elements in an application.</li>
+                <li>
+                    The <code>update()</code> method handles initial render as well as updates, centralizing the UI
+                    logic.
+                    Note that this method is written in a defensive way with the <code>if</code> statement, because it
+                    may be called from the <code>attributeChangedCallback()</code> method before
+                    <code>connectedCallback()</code> creates the <code>&lt;img&gt;</code> element.
+                </li>
+                <li>The exported <code>registerAvatarComponent</code> function allows centralizing the logic that
+                    defines all custom elements in an application.</li>
             </ul>
             <p>Once rendered this avatar component will have this DOM structure:</p>
             <ul>
@@ -166,19 +210,24 @@
                 </li>
             </ul>
             <p>For styling of our component we can use a separate css file:</p>
-            <x-code-viewer src="./examples/components/advanced/components/avatar.css" name="components/avatar.css"></x-code-viewer>
+            <x-code-viewer src="./examples/components/advanced/components/avatar.css"
+                name="components/avatar.css"></x-code-viewer>
             <p>Notice that:</p>
             <ul>
-                <li>Because we know what the tag of our component is, we can easily scope the styles by prepending them with <code>x-avatar</code>, so they won't conflict with the rest of the page.</li>
-                <li>Because a custom element is just HTML, we can style based on the element's custom attributes in pure CSS, like the <code>size</code> attribute which resizes the component without any JavaScript.</li>
+                <li>Because we know what the tag of our component is, we can easily scope the styles by prepending them
+                    with <code>x-avatar</code>, so they won't conflict with the rest of the page.</li>
+                <li>Because a custom element is just HTML, we can style based on the element's custom attributes in pure
+                    CSS, like the <code>size</code> attribute which resizes the component without any JavaScript.</li>
             </ul>
 
             <p>An example that shows the two different sizes on a webpage:</p>
             <iframe src="./examples/components/advanced/index.html" title="avatar component second example"></iframe>
 
             <p>
-                The HTML for this example centralizes the JavaScript and CSS logic to two index files, to make it easier to scale out to more web components.
-                This pattern, or a pattern like it, can keep things organized in a web application that is built out of dozens or hundreds of different web components.
+                The HTML for this example centralizes the JavaScript and CSS logic to two index files, to make it easier
+                to scale out to more web components.
+                This pattern, or a pattern like it, can keep things organized in a web application that is built out of
+                dozens or hundreds of different web components.
             </p>
 
             <x-tab-panel>
@@ -194,15 +243,21 @@
             </x-tab-panel>
 
             <p>
-                The use of the CSS <code>@import</code> keyword may seem surprising as this keyword is often frowned upon for performance reasons,
-                but in modern browsers over HTTP/2 and in particular HTTP/3 the performance penalty of this approach is not that severe.
+                The use of the CSS <code>@import</code> keyword may seem surprising as this keyword is often frowned
+                upon for performance reasons,
+                but in modern browsers over HTTP/2 and in particular HTTP/3 the performance penalty of this approach is
+                not that severe.
             </p>
             <aside>
                 <h3>Don't we need a bundler?</h3>
                 <p>
-                    If you've paid close attention, you have seen that we're using the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ES module syntax</a> for <code>import</code> and <code>export</code> in our code,
-                    but we haven't set up any JavaScript bundler to transpile that syntax. The magic that makes this work is in the <code>index.html</code>,
-                    where the <code>&lt;script type="module" src="index.js"&gt;</code> tag's type attribute enables ES module mode for all the included JavaScript.
+                    If you've paid close attention, you have seen that we're using the <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ES module
+                        syntax</a> for <code>import</code> and <code>export</code> in our code,
+                    but we haven't set up any JavaScript bundler to transpile that syntax. The magic that makes this
+                    work is in the <code>index.html</code>,
+                    where the <code>&lt;script type="module" src="index.js"&gt;</code> tag's type attribute enables ES
+                    module mode for all the included JavaScript.
                     This is supported by all modern browsers.
                 </p>
             </aside>
@@ -214,7 +269,8 @@
                 Allowing children to be added to a web component is not hard. In fact, it is the default behavior.
                 To see how this works, let's extend the avatar example by wrapping it with a badge:
             </p>
-            <iframe src="./examples/components/adding-children/index.html" title="component with children example"></iframe>
+            <iframe src="./examples/components/adding-children/index.html"
+                title="component with children example"></iframe>
             <x-tab-panel>
                 <x-tab title="index.html" active>
                     <x-code-viewer src="./examples/components/adding-children/index.html" name=""></x-code-viewer>
@@ -243,14 +299,18 @@
                 </li>
             </ul>
 
-            <p>The <code>x-avatar</code> component is identical to the previous example, but how does the <code>x-badge</code> work?</p>
+            <p>The <code>x-avatar</code> component is identical to the previous example, but how does the
+                <code>x-badge</code> work?
+            </p>
 
             <x-tab-panel>
                 <x-tab title="badge.js" active>
-                    <x-code-viewer src="./examples/components/adding-children/components/badge.js" name="components/badge.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/components/adding-children/components/badge.js"
+                        name="components/badge.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="badge.css">
-                    <x-code-viewer src="./examples/components/adding-children/components/badge.css" name="components/badge.css"></x-code-viewer>
+                    <x-code-viewer src="./examples/components/adding-children/components/badge.css"
+                        name="components/badge.css"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
 
@@ -259,27 +319,33 @@
                 <dt><code>this.insertBefore</code></dt>
                 <dd>
                     <p>
-                        Care must be taken to not overwrite the children already added in the markup, for example by assigning to <code>innerHTML</code>. 
+                        Care must be taken to not overwrite the children already added in the markup, for example by
+                        assigning to <code>innerHTML</code>.
                         In this case the span that shows the badge is inserted before the child elements.
                     </p>
                     <p>
                         This also means that for custom elements that should not have children,
-                        this can be enforced by calling <code>this.innerHTML = ''</code> from <code>connectedCallback()</code>.
+                        this can be enforced by calling <code>this.innerHTML = ''</code> from
+                        <code>connectedCallback()</code>.
                     </p>
                 </dd>
                 <dt><code>set content(value) {</code></dt>
                 <dd>
-                    Custom element attributes can only be accessed from JavaScript through the <code>setAttribute()</code> and <code>getAttribute()</code> methods.
-                    To have a cleaner JavaScript API a setter and getter must be created for a class property that wraps the custom element's <code>content</code> attribute.
+                    Custom element attributes can only be accessed from JavaScript through the
+                    <code>setAttribute()</code> and <code>getAttribute()</code> methods.
+                    To have a cleaner JavaScript API a setter and getter must be created for a class property that wraps
+                    the custom element's <code>content</code> attribute.
                     See the <code>index.html</code> above for where this is called.
                 </dd>
             </dl>
             <aside>
                 <h3>Detecting children</h3>
                 <p>
-                    Knowing when children are added or removed to a web component is possible with a <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">MutationObserver</a>, 
+                    Knowing when children are added or removed to a web component is possible with a <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">MutationObserver</a>,
                     by calling its observe method with <code>observer.observe(this, { childList: true })</code>.
-                    Creating it in the constructor will observe a mutation of type <code>childList</code> when the child elements are first added, and also when later on elements are added or removed.
+                    Creating it in the constructor will observe a mutation of type <code>childList</code> when the child
+                    elements are first added, and also when later on elements are added or removed.
                 </p>
             </aside>
         </section>
@@ -287,74 +353,102 @@
             <a href="#bells-and-whistles" class="section-anchor">#</a>
             <h2>Bells and whistles</h2>
             <p>
-                Having seen what regular web components look like, we're now ready to jump up to the final difficulty level of web components, 
+                Having seen what regular web components look like, we're now ready to jump up to the final difficulty
+                level of web components,
                 leveraging the more advanced features of Shadow DOM and HTML templates.
             </p>
-            
-            <p>This can all be brought together in this page layout example, that defines a new <code>&lt;x-header&gt;</code> component:</p>
-            <iframe src="./examples/components/shadow-dom/index.html" title="shadow dom component example" height="200"></iframe>
+
+            <p>This can all be brought together in this page layout example, that defines a new
+                <code>&lt;x-header&gt;</code> component:
+            </p>
+            <iframe src="./examples/components/shadow-dom/index.html" title="shadow dom component example"
+                height="200"></iframe>
             <x-code-viewer src="./examples/components/shadow-dom/index.html"></x-code-viewer>
 
             <p>This is the code for the newly added <code>&lt;x-header&gt;</code> component:</p>
-            <x-code-viewer src="./examples/components/shadow-dom/components/header.js" name="components/header.js"></x-code-viewer>
+            <x-code-viewer src="./examples/components/shadow-dom/components/header.js"
+                name="components/header.js"></x-code-viewer>
 
             <p>There is a lot happening in <code>header.js</code>, so let's unpack.</p>
             <dl>
                 <dt><code>const template = document.createElement('template');</code></dt>
                 <dd>
-                    The header code starts out by creating an <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots">HTML template</a>.
+                    The header code starts out by creating an <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_templates_and_slots">HTML
+                        template</a>.
                     Templates are fragments of HTML that can be easily cloned and appended to a DOM.
-                    For complex web components that have a lot of markup, the use of a template is often more convenient.
-                    By instantiating the template outside the class, it can be reused across all instances of the <code>&lt;x-header&gt;</code> component.
+                    For complex web components that have a lot of markup, the use of a template is often more
+                    convenient.
+                    By instantiating the template outside the class, it can be reused across all instances of the
+                    <code>&lt;x-header&gt;</code> component.
                 </dd>
                 <dt><code>&lt;link rel="stylesheet" href="${import.meta.resolve('./header.css')}"&gt;</code></dt>
                 <dd>
-                    Because this component uses a shadow DOM, it is isolated from the styles of the containing page and starts out unstyled.
-                    The <code>header.css</code> needs to be imported into the shadow DOM using the <code>&lt;link&gt;</code> tag.
-                    The special <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta/resolve">import.meta.resolve</a> trick 
+                    Because this component uses a shadow DOM, it is isolated from the styles of the containing page and
+                    starts out unstyled.
+                    The <code>header.css</code> needs to be imported into the shadow DOM using the
+                    <code>&lt;link&gt;</code> tag.
+                    The special <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta/resolve">import.meta.resolve</a>
+                    trick
                     imports the CSS file from the same path as the <code>header.js</code> file.
                 </dd>
                 <dt><code>&lt;slot&gt;&lt;/slot&gt;</code></dt>
                 <dd>
-                    The <code>&lt;slot&gt;</code> element is where the child elements will go (like the <code>&lt;x-badge&gt;</code> child of <code>&lt;x-header&gt;</code>).
-                    Putting child elements in a slot is similar to using a <code>children</code> prop in a React component.
+                    The <code>&lt;slot&gt;</code> element is where the child elements will go (like the
+                    <code>&lt;x-badge&gt;</code> child of <code>&lt;x-header&gt;</code>).
+                    Putting child elements in a slot is similar to using a <code>children</code> prop in a React
+                    component.
                     The use of slots is only possible in web components that have a shadow DOM.
                 </dd>
                 <dt><code>constructor() {</code></dt>
                 <dd>
                     <p>
-                        This is the first example that uses a constructor. The constructor is called when the element is first created,
-                        but before it's ready for DOM interaction. The default behavior of a constructor is to call the parent class's constructor <code>super()</code>.
-                        So if all that is needed is the default HTMLElement constructor behavior then no constructor needs to be specified.
+                        This is the first example that uses a constructor. The constructor is called when the element is
+                        first created,
+                        but before it's ready for DOM interaction. The default behavior of a constructor is to call the
+                        parent class's constructor <code>super()</code>.
+                        So if all that is needed is the default HTMLElement constructor behavior then no constructor
+                        needs to be specified.
                     </p>
                     <p>
-                        The reason it is specified here is because the constructor is guaranteed to be called exactly once,
+                        The reason it is specified here is because the constructor is guaranteed to be called exactly
+                        once,
                         which makes it the ideal place to attach a shadow DOM.
                     </p>
                 </dd>
                 <dt><code>if (!this.shadowRoot) { this.attachShadow({ mode: 'open' });</code></dt>
                 <dd>
                     <p>
-                        <code>attachShadow</code> attaches a shadow DOM to the current element, an isolated part of the DOM structure with CSS separated from the containing page,
-                        and optionally with the shadow content hidden away from the parent page's JavaScript context (if <code>mode: 'closed'</code> is set).
-                        For web components that are used in a known codebase, it is usually more convenient to use them in open mode,
-                        as is done here.    
+                        <code>attachShadow</code> attaches a shadow DOM to the current element, an isolated part of the
+                        DOM structure with CSS separated from the containing page,
+                        and optionally with the shadow content hidden away from the parent page's JavaScript context (if
+                        <code>mode: 'closed'</code> is set).
+                        For web components that are used in a known codebase, it is usually more convenient to use them
+                        in open mode,
+                        as is done here.
                     </p>
                     <p>
-                        <code>if (!this.shadowRoot) {</code> is not strictly necessary, but allows for server-side generated HTML,
-                        by making use of <a href="https://developer.chrome.com/docs/css-ui/declarative-shadow-dom">declarative shadow DOM</a>.
+                        <code>if (!this.shadowRoot) {</code> is not strictly necessary, but allows for server-side
+                        generated HTML,
+                        by making use of <a
+                            href="https://developer.chrome.com/docs/css-ui/declarative-shadow-dom">declarative shadow
+                            DOM</a>.
                     </p>
                 </dd>
                 <dt><code>this.shadowRoot.append(template.content.cloneNode(true));</code></dt>
                 <dd>
                     <p>
-                        The <code>shadowRoot</code> property is the root element of the attached shadow DOM, and is rendered into the page as the <code>&lt;x-header&gt;</code> element's content.
+                        The <code>shadowRoot</code> property is the root element of the attached shadow DOM, and is
+                        rendered into the page as the <code>&lt;x-header&gt;</code> element's content.
                         The HTML template is cloned and appended into it.
                     </p>
                     <p>
                         The shadow DOM becomes immediately available as soon as <code>attachShadow</code> is called,
-                        which is why the template can be appended in the constructor, and why the <code>update()</code> method can be called there.
-                        For custom elements without shadow DOM rendering the element's content should be deferred until <code>connectedCallback()</code>.
+                        which is why the template can be appended in the constructor, and why the <code>update()</code>
+                        method can be called there.
+                        For custom elements without shadow DOM rendering the element's content should be deferred until
+                        <code>connectedCallback()</code>.
                     </p>
                 </dd>
             </dl>
@@ -374,16 +468,19 @@
                     <x-code-viewer src="./examples/components/shadow-dom/index.js" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="header.js">
-                    <x-code-viewer src="./examples/components/shadow-dom/components/header.js" name="components/header.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/components/shadow-dom/components/header.js"
+                        name="components/header.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="header.css">
-                    <x-code-viewer src="./examples/components/shadow-dom/components/header.css" name="components/header.css"></x-code-viewer>
+                    <x-code-viewer src="./examples/components/shadow-dom/components/header.css"
+                        name="components/header.css"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
 
             <p>As you can see in <code>header.css</code>, styling the content of a shadow DOM is a bit different:</p>
             <ul>
-                <li>The <code>:host</code> pseudo-selector applies styles to the element from the light DOM that hosts the shadow DOM (or in other words, to the custom element itself).</li>
+                <li>The <code>:host</code> pseudo-selector applies styles to the element from the light DOM that hosts
+                    the shadow DOM (or in other words, to the custom element itself).</li>
                 <li>The other styles (like <code>h1</code> in this example) are isolated inside the shadow DOM.</li>
                 <li>The shadow DOM starts out unstyled, which is why <code>reset.css</code> is imported again.</li>
             </ul>
@@ -391,28 +488,42 @@
             <aside>
                 <h3>To shadow or not to shadow?</h3>
                 <p>
-                    Because custom elements can contain children with or without a shadow DOM, you may be wondering when to use this feature.
+                    Because custom elements can contain children with or without a shadow DOM, you may be wondering when
+                    to use this feature.
                 </p>
                 <p>
                     Shadow DOM comes with a number of downsides:
                 </p>
                 <ul>
-                    <li>There is a <a href="../blog/articles/2024-09-06-how-fast-are-web-components/">performance penalty</a>, noticeable when putting hundreds of shadow DOMs on a page.</li>
-                    <li>It can cause <a href="https://nolanlawson.com/2022/11/28/shadow-dom-and-accessibility-the-trouble-with-aria/">accessibility issues</a>.</li>
-                    <li>While Google can crawl inside shadow DOM, <a href="https://help.siteimprove.com/support/solutions/articles/80001132321-shadow-dom-support">other crawlers may have trouble</a>.</li>
+                    <li>There is a <a href="../blog/articles/2024-09-06-how-fast-are-web-components/">performance
+                            penalty</a>, noticeable when putting hundreds of shadow DOMs on a page.</li>
+                    <li>It can cause <a
+                            href="https://nolanlawson.com/2022/11/28/shadow-dom-and-accessibility-the-trouble-with-aria/">accessibility
+                            issues</a>.</li>
+                    <li>While Google can crawl inside shadow DOM, <a
+                            href="https://help.siteimprove.com/support/solutions/articles/80001132321-shadow-dom-support">other
+                            crawlers may have trouble</a>.</li>
                     <li>
-                        There can be a <abbr title="Flash Of Unstyled Content">FOUC</abbr> while a stylesheet from a <code>&lt;link&gt;</code> tag is loading.
-                        This can be worked around with <a href="https://web.dev/articles/constructable-stylesheets">constructable stylesheets</a>, but this adds complexity.
+                        There can be a <abbr title="Flash Of Unstyled Content">FOUC</abbr> while a stylesheet from a
+                        <code>&lt;link&gt;</code> tag is loading.
+                        This can be worked around with <a
+                            href="https://web.dev/articles/constructable-stylesheets">constructable stylesheets</a>, but
+                        this adds complexity.
                     </li>
                 </ul>
                 <p>
-                    For those reasons, if you're not making components for someone else, you may find it easier to avoid shadow DOM.
+                    For those reasons, if you're not making components for someone else, you may find it easier to avoid
+                    shadow DOM.
                 </p>
                 <p>Shadow DOM is however recommended in these situations:</p>
                 <ul>
-                    <li>Intermediate elements need to be created between the root element and the contained children, like the <code>&lt;header&gt;</code> in the example above. Only the use of a slot inside of a shadow DOM makes this possible.</li>
-                    <li>Multiple places in the web component will accept children. Named slots provide this ability. This can be convenient for layout components.</li>
-                    <li>The styles and DOM need to be isolated from the containing page. This is often the case for web components designed to be used by others or embedded in third-party sites.</li>
+                    <li>Intermediate elements need to be created between the root element and the contained children,
+                        like the <code>&lt;header&gt;</code> in the example above. Only the use of a slot inside of a
+                        shadow DOM makes this possible.</li>
+                    <li>Multiple places in the web component will accept children. Named slots provide this ability.
+                        This can be convenient for layout components.</li>
+                    <li>The styles and DOM need to be isolated from the containing page. This is often the case for web
+                        components designed to be used by others or embedded in third-party sites.</li>
                 </ul>
             </aside>
         </section>
@@ -420,28 +531,38 @@
             <a href="#passing-data" class="section-anchor">#</a>
             <h2>Passing Data</h2>
             <p>
-                Everything up to this point assumes that data passed between web components is very simple, just simple numeric and string attributes passing down.
-                A real world web application however passes complex data such as objects and arrays from parent to child components and vice versa.
+                Everything up to this point assumes that data passed between web components is very simple, just simple
+                numeric and string attributes passing down.
+                A real world web application however passes complex data such as objects and arrays from parent to child
+                components and vice versa.
             </p>
             <p>
                 This example demonstrates the three major ways that data can be passed between web components:
             </p>
-            <iframe src="./examples/components/data/index.html" title="data passing example" style="height: 250px;"></iframe>
-            
+            <iframe src="./examples/components/data/index.html" title="data passing example"
+                style="height: 250px;"></iframe>
+
             <h3>Events</h3>
-            <p>The first way is passing events, usually from child components to their parent component. This is demonstrated by the form at the top of the example.</p>
-            <x-code-viewer src="./examples/components/data/components/form.js" name="components/form.js"></x-code-viewer>
+            <p>The first way is passing events, usually from child components to their parent component. This is
+                demonstrated by the form at the top of the example.</p>
+            <x-code-viewer src="./examples/components/data/components/form.js"
+                name="components/form.js"></x-code-viewer>
             <p>
-                Every time the <strong>Add</strong> button is pressed a <code>CustomEvent</code> of type <code>add</code> is dispatched using the <code>dispatchEvent</code> method.
+                Every time the <strong>Add</strong> button is pressed a <code>CustomEvent</code> of type
+                <code>add</code> is dispatched using the <code>dispatchEvent</code> method.
                 The event data's <code>detail</code> property carries the submitted form data.
             </p>
             <p>The event is handled one level up:</p>
             <x-code-viewer src="./examples/components/data/components/app.js" name="components/app.js"></x-code-viewer>
-            <p>The <code>update()</code> method sends the updated list back down to the <code>&lt;santas-list&gt;</code> and <code>&lt;santas-summary&gt;</code> components, using the next two methods.</p>
+            <p>The <code>update()</code> method sends the updated list back down to the <code>&lt;santas-list&gt;</code>
+                and <code>&lt;santas-summary&gt;</code> components, using the next two methods.</p>
 
             <h3>Properties</h3>
-            <p>The second way to pass complex data is by using class properties, as exemplified by the <code>&lt;santas-list&gt;</code> component:</p>
-            <x-code-viewer src="./examples/components/data/components/list.js" name="components/list.js"></x-code-viewer>
+            <p>The second way to pass complex data is by using class properties, as exemplified by the
+                <code>&lt;santas-list&gt;</code> component:
+            </p>
+            <x-code-viewer src="./examples/components/data/components/list.js"
+                name="components/list.js"></x-code-viewer>
             <p>The <code>list</code> setter calls the <code>update()</code> method to rerender the list.</p>
             <p>This is the recommended way to pass complex data to stateful web components.</p>
 
@@ -450,19 +571,25 @@
                 <p>
                     Keen observers may have noticed there's a cross-site scripting bug in the above example.
                     This can be solved by properly encoding entities for <code>person.name</code>.
-                    To see how this can be done, check out the <a href="applications.html#entity-encoding">entity encoding</a> chapter on the Applications page.
+                    To see how this can be done, check out the <a href="applications.html#entity-encoding">entity
+                        encoding</a> chapter on the Applications page.
                 </p>
             </aside>
 
             <p>
                 The best practice way of implementing attributes, properties and events is subtle and opinionated.
-                The article <a href="https://blog.ltgt.net/web-component-properties/">making web components behave closer to the platform</a> explains how custom elements can be made to behave like built-in elements,
+                The article <a href="https://blog.ltgt.net/web-component-properties/">making web components behave
+                    closer to the platform</a> explains how custom elements can be made to behave like built-in
+                elements,
                 and is recommended reading when making web components that will be embedded in third-party sites.
             </p>
 
             <h3>Methods</h3>
-            <p>The third way to pass complex data is by calling a method on the web component, as exemplified by the <code>&lt;santas-summary&gt;</code> component:</p>
-            <x-code-viewer src="./examples/components/data/components/summary.js" name="components/summary.js"></x-code-viewer>
+            <p>The third way to pass complex data is by calling a method on the web component, as exemplified by the
+                <code>&lt;santas-summary&gt;</code> component:
+            </p>
+            <x-code-viewer src="./examples/components/data/components/summary.js"
+                name="components/summary.js"></x-code-viewer>
             <p>This is the recommended way to pass complex data to stateless web components.</p>
 
             <h3>Complete example</h3>
@@ -478,16 +605,20 @@
                     <x-code-viewer src="./examples/components/data/index.css" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="app.js">
-                    <x-code-viewer src="./examples/components/data/components/app.js" name="components/app.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/components/data/components/app.js"
+                        name="components/app.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="form.js">
-                    <x-code-viewer src="./examples/components/data/components/form.js" name="components/form.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/components/data/components/form.js"
+                        name="components/form.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="list.js">
-                    <x-code-viewer src="./examples/components/data/components/list.js" name="components/list.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/components/data/components/list.js"
+                        name="components/list.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="summary.js">
-                    <x-code-viewer src="./examples/components/data/components/summary.js" name="components/summary.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/components/data/components/summary.js"
+                        name="components/summary.js"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
         </section>
@@ -495,13 +626,15 @@
             <aside>
                 <h3>The power of the browser</h3>
                 <p>
-                    A reminder that all of this code is still vanilla. It does not make use of any framework, library or build tool and works in all the major browsers.
+                    A reminder that all of this code is still vanilla. It does not make use of any framework, library or
+                    build tool and works in all the major browsers.
                     It will never need changes to be compatible with new dependency versions.
                     And most importantly, it remains readable and maintainable.
                 </p>
                 <p>
                     There's still more to say on web components. For a deeper dive into their lifecycle,
-                    check out this <a href="../blog/articles/2024-09-16-life-and-times-of-a-custom-element/">article on web component lifecycle</a>.
+                    check out this <a href="../blog/articles/2024-09-16-life-and-times-of-a-custom-element/">article on
+                        web component lifecycle</a>.
                 </p>
             </aside>
         </section>
@@ -520,4 +653,5 @@
         <x-analytics></x-analytics>
     </footer>
 </body>
+
 </html>

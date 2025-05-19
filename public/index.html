@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <title>Plain Vanilla</title>
+    <title>首頁｜Plain Vanilla zh-TW</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="An explainer for doing web development using only vanilla techniques.">
@@ -9,86 +10,104 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="stylesheet" href="index.css">
     <link rel="canonical" href="https://plainvanillaweb.com/index.html" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <h1>Plain Vanilla</h1>
-        <p>
-            An explainer for doing web development using only vanilla techniques. 
-            No tools, no frameworks &mdash; just HTML, CSS, and JavaScript.
-        </p>
+        <h1>Plain Vanilla zh-TW</h1>
         <nav>
             <ol>
-                <li>Welcome</li>
-                <li><a href="pages/components.html">Components</a></li>
-                <li><a href="pages/styling.html">Styling</a></li>
-                <li><a href="pages/sites.html">Sites</a></li>
-                <li><a href="pages/applications.html">Applications</a></li>
-                <li><a href="blog/">Blog</a></li>
+                <li>首頁</li>
+                <li><a href="pages/components.html">如何建立元件</a></li>
+                <li><a href="pages/styling.html">如何設定樣式</a></li>
+                <li><a href="pages/sites.html">製作一般網站</a></li>
+                <li><a href="pages/applications.html">製作互動網站</a></li>
+                <li><a href="blog/">網誌</a></li>
             </ol>
         </nav>
+        <p>
+            嗨！我是重年，在網頁開發領域有一個約定俗成的詞彙，專門用來形容不仰賴開發工具與框架，只使用原生語法來開發網站的風格，這個詞彙是 Vanilla。
+        </p>
+        <p>
+            例如，當開發者說使用 Vanilla JavaScript
+            時，意思是只用 JavaScript 的原生語法，而不借助像 jQuery、React、Angular 或 Vue.js 這類函式庫或框架。同樣地，Vanilla
+            CSS 指的就是直接使用標準的 CSS 語法，而不依賴像是 Bootstrap 或 Tailwind CSS 等 CSS 框架。
+        </p>
+        <p> 而這個網站是 GitHub 上 Plain Vanilla 專案（<a target="_blank"
+                href="https://github.com/jsebrech/plainvanilla">連結</a>）的本地化，是用繁體中文講解如何在不仰賴開發工具與框架的情況下，只使用
+            HTML、CSS 和 JavaScript 的原生語法來開發網站。內容會對 Vibe Coding 很有幫助，而且作者有在 issue 中（<a target="_blank"
+                href="https://github.com/jsebrech/plainvanilla/issues/4">連結</a>）明確開放，所以就著手進行了翻譯。
+        </p>
+        <p>
+            本站更新於 2025 年 5 月 19 日，本地化進度 5 %，即時資訊建議請參考原專案的官方網站（<a target="_blank"
+                href="https://plainvanillaweb.com/">連結</a>）。
+        </p>
+        <hr />
     </header>
 
     <main>
         <section>
             <h2>
-                About this site
+                關於網站
             </h2>
             <p>
-                This is an overview of the major techniques used to make web sites and web applications
-                without making use of build tools or frameworks, with just an editor, a browser, and web standards.
-            </p>
-            <p>
-                Specifically, that means these topics:
+                這裡概述了在不使用建置工具或框架的情況下，僅憑一個編輯器、一個瀏覽器以及網頁標準來製作網站和網頁應用程式的主要技術，包含以下主題：
             </p>
             <dl>
-                <dt><a href="pages/components.html">Components</a></dt>
-                <dd>The use of Web Components as the basic building block for making higher-level primitives out of plain HTML, JavaScript and CSS, replacing the components approach from frameworks like React or Vue.</dd>
-                <dt><a href="pages/styling.html">Styling</a></dt>
-                <dd>Fully leveraging the abilities of modern CSS to replace the conveniences of CSS Modules, PostCSS, or SASS.</dd>
-                <dt><a href="pages/sites.html">Sites</a></dt>
-                <dd>Making a web project based on web components and deploying it for production without involving build tools, frameworks or server-side logic.</dd>
-                <dt><a href="pages/applications.html">Applications</a></dt>
-                <dd>How to build single-page web applications with vanilla techniques, how to do routing, and how to manage state.</dd>
+                <dt><a href="pages/components.html">如何建立元件</a></dt>
+                <dd>使用 Web Components 作為基礎建構模組，透過 HTML、CSS 和 JavaScript 的原生語法，來打造更高級別的原始元素，藉此取代 React 或 Vue 等框架。
+                </dd>
+                <dt><a href="pages/styling.html">如何設定樣式</a></dt>
+                <dd>完整發揮現代 CSS 的強大功能，來取代 CSS Modules、PostCSS 或 SASS 等工具所提供的便利性。</dd>
+                <dt><a href="pages/sites.html">製作一般網站</a></dt>
+                <dd>基於 Web Components 建立網頁專案，並在無需建置工具、框架或伺服器端邏輯的情況下，將其部署至正式環境。</dd>
+                <dt><a href="pages/applications.html">製作互動網站</a></dt>
+                <dd>如何運用原生語法建構單頁式網頁應用程式 (SPA)，以及如何處理路由和狀態管理。</dd>
             </dl>
             <p>
-                This tutorial is meant for those who already know their way around HTML, CSS and JavaScript. If you're just starting out learning web development and are looking for resources to get going, then this is not the site for you yet. 
-                You can get started at <a href="https://www.theodinproject.com/paths/foundations/courses/foundations">The Odin Project Foundations Course</a> 
-                or the <a href="https://developer.mozilla.org/en-US/docs/Learn">MDN Learn web development</a> learning path. 
+                這個教學專為熟悉 HTML、CSS 及 JavaScript 的開發者設計，並不適合初學者瀏覽。如果您剛開始學習網頁開發，正在尋找入門資源，建議先從 <a target="_blank"
+                    href="https://www.theodinproject.com/paths/foundations/courses/foundations">The
+                    Odin
+                    Project</a> 或 MDN 的 <a target="_blank"
+                    href="https://developer.mozilla.org/zh-TW/docs/Learn_web_development">學習 Web
+                    開發</a> 開始入門。
             </p>
         </section>
         <section>
             <h2>
-                Wait, but why
+                網站緣起
             </h2>
             <p>
-                Modern web development frameworks are powerful in their ability to develop rich well-structured web applications quickly,
-                and for this reason alone they are well worth your time to learn.
-                However, this rich functionality comes at the cost of framework and tooling complexity,
-                and the resulting projects often require regular maintenance to keep secure and up to date.
+                現代網頁開發框架功能強大，能協助開發者快速建構出內容豐富、結構完善的網頁應用程式，因此非常值得投入時間學習。不過框架的豐富功能也伴隨著複雜性，而且為了確保安全性，開發出來的專案往往需要定期維護並保持更新。
             </p>
             <p>
-                The plain vanilla style of web development makes a different choice,
-                trading off a few short term comforts for long term benefits like simplicity and being effectively zero-maintenance.
-                This approach is made possible by today's browser landscape, which offers excellent web standards support.
+                但 Vanilla 風格的網頁則另闢蹊徑，因為目前的瀏覽器環境已經對網頁標準提供了絕佳的支援，所以它選擇犧牲部分短期便利，以換取如架構簡潔、幾乎無需維護等長期優勢。
             </p>
         </section>
         <section>
             <hr />
-            <h2>Up next</h2>
-            Learn about using <a href="pages/components.html">Web Components</a> as the way to compose content, style and behavior.
+            <h2>接下來</h2>
+            接著來學習 <a href="pages/components.html">如何使用元件</a> 作為組織內容、樣式與行為的方法吧！
         </section>
     </main>
 
     <footer>
         <hr />
         <div class="contact">
-            <a href="https://github.com/jsebrech/plainvanilla">GitHub</a>
-            <a href="https://sebrechts.net/">Contact</a>
+            <a target="_blank" href="https://github.com/jsebrech/plainvanilla">Plain Vanilla</a>
+            <a target="_blank" href="https://sebrechts.net/">Contact with Joeri</a>
+            <a target="_blank" href="https://github.com/lloyd3126/plainvanilla-zh-TW">Plain Vanilla zh-TW</a>
+            <a target="_blank" href="https://nien.cc/">Contact with Lloyd</a>
         </div>
         <x-analytics></x-analytics>
     </footer>
 
     <script type="module" src="index.js"></script>
 </body>
+
 </html>

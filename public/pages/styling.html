@@ -1,27 +1,34 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <title>Plain Vanilla - Styling</title>
+    <title>如何設定樣式｜Plain Vanilla zh-TW</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="An explainer for styling web sites using only vanilla techniques.">
     <link rel="icon" href="../favicon.ico">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <link rel="stylesheet" href="../index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <noscript><strong>Please enable JavaScript to view this page correctly.</strong></noscript>
     <script type="module" src="../index.js"></script>
     <header>
-        <h1>Plain Vanilla Styling</h1>
+        <h1>Plain Vanilla zh-TW</h1>
         <nav>
             <ol>
-                <li><a href="../index.html">Welcome</a></li>
-                <li><a href="components.html">Components</a></li>
-                <li>Styling</li>
-                <li><a href="sites.html">Sites</a></li>
-                <li><a href="applications.html">Applications</a></li>
-                <li><a href="../blog/">Blog</a></li>
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="components.html">如何建立元件</a></li>
+                <li>如何設定樣式</li>
+                <li><a href="sites.html">製作一般網站</a></li>
+                <li><a href="applications.html">製作互動網站</a></li>
+                <li><a href="../blog/">網誌</a></li>
             </ol>
         </nav>
     </header>
@@ -29,15 +36,18 @@
         <section>
             <h2>Modern CSS</h2>
             <p>
-                Modern web applications are built on top of rich tooling for dealing with CSS, relying on plenty of NPM packages and build steps.
-                A vanilla web application however has to choose a lighter weight path, abandoning the preprocessed modern CSS approaches 
+                Modern web applications are built on top of rich tooling for dealing with CSS, relying on plenty of NPM
+                packages and build steps.
+                A vanilla web application however has to choose a lighter weight path, abandoning the preprocessed
+                modern CSS approaches
                 and choosing strategies that are browser native.
             </p>
         </section>
         <section id="reset">
             <a href="#reset" class="section-anchor">#</a>
             <h2>Reset</h2>
-            <p>Resetting the styles to a cross-browser common baseline is standard practice in web development, and vanilla web apps are no different.</p>
+            <p>Resetting the styles to a cross-browser common baseline is standard practice in web development, and
+                vanilla web apps are no different.</p>
             <p>A minimal reset is the one used by this site:</p>
             <x-code-viewer src="../styles/reset.css"></x-code-viewer>
             <p>Other options, in increasing order of complexity:</p>
@@ -49,7 +59,8 @@
                 </dd>
                 <dt><a href="https://cferdinandi.github.io/kraken/">Kraken</a></dt>
                 <dd>
-                    <p>A starting point for front-end projects. It includes a CSS reset, typography, a grid, and other conveniences.</p>
+                    <p>A starting point for front-end projects. It includes a CSS reset, typography, a grid, and other
+                        conveniences.</p>
                     <p><a href="https://cdnjs.com/libraries/Kraken">Include it from CDN</a></p>
                 </dd>
                 <dt><a href="https://picocss.com/">Pico CSS</a></dt>
@@ -68,12 +79,14 @@
             <a href="#fonts" class="section-anchor">#</a>
             <h2>Fonts</h2>
             <p>
-                Typography is the keystone of a web site or web application. 
+                Typography is the keystone of a web site or web application.
                 A lean approach like vanilla web development should be matched with a lean approach for typography.
-                <a href="https://modernfontstacks.com/">Modern Font Stacks</a> describes a varied selection of commonly available fonts with good fallbacks,
+                <a href="https://modernfontstacks.com/">Modern Font Stacks</a> describes a varied selection of commonly
+                available fonts with good fallbacks,
                 avoiding the need to load custom fonts and add external dependencies.
             </p>
-            <p>This site uses the <em>Geometric Humanist</em> stack for normal text, and the <em>Monospace Code</em> stack for source code.</p>
+            <p>This site uses the <em>Geometric Humanist</em> stack for normal text, and the <em>Monospace Code</em>
+                stack for source code.</p>
         </section>
         <section id="toolbox">
             <a href="#toolbox" class="section-anchor">#</a>
@@ -86,10 +99,11 @@
                 <dt><code>@import</code></dt>
                 <dd>
                     <p>
-                        The most basic structuring technique is separating CSS into multiple files. 
-                        We could add all those files in order as <code>&lt;link&gt;</code> tags into the <code>index.html</code>
+                        The most basic structuring technique is separating CSS into multiple files.
+                        We could add all those files in order as <code>&lt;link&gt;</code> tags into the
+                        <code>index.html</code>
                         but this quickly becomes unworkable if we have multiple HTML pages.
-                        Instead it is better to import them into the <code>index.css</code>    
+                        Instead it is better to import them into the <code>index.css</code>
                     </p>
                     <p>For example, here's the main CSS file for this site:</p>
                     <x-code-viewer src="../index.css"></x-code-viewer>
@@ -97,31 +111,40 @@
                 </dd>
                 <dt>Custom properties (variables)</dt>
                 <dd>
-                    <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS variables</a> can be used to define the site's font and theme in a central place.</p>
+                    <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS
+                            variables</a> can be used to define the site's font and theme in a central place.</p>
                     <p>For example, here are the variables for this site:</p>
                     <x-code-viewer src="../styles/variables.css"></x-code-viewer>
-                    <p>CSS variables become even more capable when combined with <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">calc()</a>.</p>
+                    <p>CSS variables become even more capable when combined with <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">calc()</a>.</p>
                 </dd>
                 <dt>Custom elements</dt>
                 <dd>
                     <p>Styles can be easily scoped to a custom element's tag.</p>
-                    <p>For example, the styles of the avatar component from the components page are all prepended by the <code>x-avatar</code> selector:</p>
+                    <p>For example, the styles of the avatar component from the components page are all prepended by the
+                        <code>x-avatar</code> selector:
+                    </p>
                     <x-code-viewer src="./examples/components/advanced/components/avatar.css"></x-code-viewer>
-                    <p>Custom elements can also have custom attributes that selectors can leverage, as with the <code>[size=lg]</code> style in this example.</p>
+                    <p>Custom elements can also have custom attributes that selectors can leverage, as with the
+                        <code>[size=lg]</code> style in this example.
+                    </p>
                 </dd>
                 <dt>Shadow DOM</dt>
                 <dd>
                     <p>
                         Adding a shadow DOM to a web component further isolates its styles from the rest of the page.
-                        For example, the <code>x-header</code> component from the previous page styles its <code>h1</code> element inside its CSS,
+                        For example, the <code>x-header</code> component from the previous page styles its
+                        <code>h1</code> element inside its CSS,
                         without affecting the containing page or the header's child elements.
                     </p>
                     <p>
                         All CSS files that need to apply to the shadow DOM must be loaded into it explicitly,
-                        but <a href="https://javascript.info/shadow-dom-style">CSS variables are passed into the shadow DOM</a>.
+                        but <a href="https://javascript.info/shadow-dom-style">CSS variables are passed into the shadow
+                            DOM</a>.
                     </p>
                     <p>
-                        A limitation of shadow DOMs is that to use custom fonts inside them, they must first be loaded into the light DOM.
+                        A limitation of shadow DOMs is that to use custom fonts inside them, they must first be loaded
+                        into the light DOM.
                     </p>
                 </dd>
             </dl>
@@ -140,20 +163,23 @@
                 <dt><code>/styles/global.css</code></dt>
                 <dd>The global styles that apply across the web pages of the site.</dd>
                 <dt><code>/components/example/example.css</code></dt>
-                <dd>All styles that aren't global are specific to a component, in a CSS file located next to the component's JS file.</dd>
+                <dd>All styles that aren't global are specific to a component, in a CSS file located next to the
+                    component's JS file.</dd>
             </dl>
         </section>
         <section id="scope">
             <a href="#scope" class="section-anchor">#</a>
             <h2>Scope</h2>
             <p>
-                In order to avoid conflicting styles between pages and components we want to scope styles locally by default.
+                In order to avoid conflicting styles between pages and components we want to scope styles locally by
+                default.
                 There are two major mechanisms for achieving that in vanilla web development.
             </p>
 
             <h3>Prefixed selectors</h3>
             <p>
-                For custom elements that don't have a shadow DOM we can prefix the styles with the tag of the custom element.
+                For custom elements that don't have a shadow DOM we can prefix the styles with the tag of the custom
+                element.
                 For example, here's a simple web component that uses prefixed selectors to create a local scope:
             </p>
             <x-tab-panel>
@@ -167,10 +193,12 @@
                     <x-code-viewer src="./examples/styling/scoping-prefixed/index.css" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="example.js">
-                    <x-code-viewer src="./examples/styling/scoping-prefixed/components/example/example.js" name="components/example/example.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/styling/scoping-prefixed/components/example/example.js"
+                        name="components/example/example.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="example.css" active>
-                    <x-code-viewer src="./examples/styling/scoping-prefixed/components/example/example.css" name="components/example/example.css"></x-code-viewer>
+                    <x-code-viewer src="./examples/styling/scoping-prefixed/components/example/example.css"
+                        name="components/example/example.css"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
 
@@ -178,14 +206,19 @@
 
             <aside>
                 <h4>Tip: CSS Nesting</h4>
-                <p>If you want a cleaner syntax, and you are comfortable with the <a href="https://caniuse.com/css-nesting">browser support</a>, consider using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting">CSS Nesting</a>.</p>
-                <x-code-viewer src="./examples/styling/scoping-prefixed/components/example/example_nested.css" name="components/example/example.css"></x-code-viewer>
+                <p>If you want a cleaner syntax, and you are comfortable with the <a
+                        href="https://caniuse.com/css-nesting">browser support</a>, consider using <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting">CSS
+                        Nesting</a>.</p>
+                <x-code-viewer src="./examples/styling/scoping-prefixed/components/example/example_nested.css"
+                    name="components/example/example.css"></x-code-viewer>
             </aside>
 
             <h3>Shadow DOM import</h3>
             <p>
                 Custom elements that use a shadow DOM start out unstyled with a local scope,
-                and all styles must be explicitly imported into them. Here is the prefixed example reworked to use a shadow DOM instead.
+                and all styles must be explicitly imported into them. Here is the prefixed example reworked to use a
+                shadow DOM instead.
             </p>
 
             <x-tab-panel>
@@ -196,10 +229,12 @@
                     <x-code-viewer src="./examples/styling/scoping-shadowed/index.js" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="example.js">
-                    <x-code-viewer src="./examples/styling/scoping-shadowed/components/example/example.js" name="components/example/example.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/styling/scoping-shadowed/components/example/example.js"
+                        name="components/example/example.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="example.css" active>
-                    <x-code-viewer src="./examples/styling/scoping-shadowed/components/example/example.css" name="components/example/example.css"></x-code-viewer>
+                    <x-code-viewer src="./examples/styling/scoping-shadowed/components/example/example.css"
+                        name="components/example/example.css"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
 
@@ -207,37 +242,48 @@
 
             <p>To reuse styles from the surrounding page inside the shadow DOM, consider these options:</p>
             <ul>
-                <li>Common CSS files can be imported inside the shadow DOM using <code>&lt;link&gt;</code> tags or <code>@import</code>.</li>
+                <li>Common CSS files can be imported inside the shadow DOM using <code>&lt;link&gt;</code> tags or
+                    <code>@import</code>.
+                </li>
                 <li>CSS variables defined in the surrounding page can be referenced inside the shadow DOM's styles.</li>
-                <li>For advanced shadow domination the <code>::part</code> pseudo-element can be used to <a href="https://meowni.ca/posts/part-theme-explainer/">expose an API for styling</a>.</li>
+                <li>For advanced shadow domination the <code>::part</code> pseudo-element can be used to <a
+                        href="https://meowni.ca/posts/part-theme-explainer/">expose an API for styling</a>.</li>
             </ul>
         </section>
         <section id="replacing-css-modules">
             <a href="#replacing-css-modules" class="section-anchor">#</a>
             <h2>Replacing CSS modules</h2>
             <p>
-                The local scoping feature of CSS modules can be replaced by one of the scoping approaches describe above.
-                For example, let's take the canonical <a href="https://nextjs.org/docs/app/building-your-application/styling/css-modules#example">example of CSS modules</a> from the Next.JS documentation:
+                The local scoping feature of CSS modules can be replaced by one of the scoping approaches describe
+                above.
+                For example, let's take the canonical <a
+                    href="https://nextjs.org/docs/app/building-your-application/styling/css-modules#example">example of
+                    CSS modules</a> from the Next.JS documentation:
             </p>
             <x-tab-panel>
                 <x-tab title="layout.tsx" active>
-                    <x-code-viewer src="./examples/styling/replacing-css-modules/nextjs/layout.tsx" name="app/dashboard/layout.tsx"></x-code-viewer>
+                    <x-code-viewer src="./examples/styling/replacing-css-modules/nextjs/layout.tsx"
+                        name="app/dashboard/layout.tsx"></x-code-viewer>
                 </x-tab>
                 <x-tab title="styles.module.css">
-                    <x-code-viewer src="./examples/styling/replacing-css-modules/nextjs/styles.module.css" name="app/dashboard/styles.module.css"></x-code-viewer>
+                    <x-code-viewer src="./examples/styling/replacing-css-modules/nextjs/styles.module.css"
+                        name="app/dashboard/styles.module.css"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
 
             <p>As a vanilla web component, this is what that looks like:</p>
             <x-tab-panel>
                 <x-tab title="layout.js" active>
-                    <x-code-viewer src="./examples/styling/replacing-css-modules/vanilla/layout.js" name="components/dashboard/layout.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/styling/replacing-css-modules/vanilla/layout.js"
+                        name="components/dashboard/layout.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="styles.css">
-                    <x-code-viewer src="./examples/styling/replacing-css-modules/vanilla/styles.css" name="components/dashboard/styles.css"></x-code-viewer>
+                    <x-code-viewer src="./examples/styling/replacing-css-modules/vanilla/styles.css"
+                        name="components/dashboard/styles.css"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
-            <p>Because the shadow DOM does not inherit the page's styles, the <code>styles.css</code> must first import the styles that are shared between the page and the shadowed web component.</p>
+            <p>Because the shadow DOM does not inherit the page's styles, the <code>styles.css</code> must first import
+                the styles that are shared between the page and the shadowed web component.</p>
         </section>
         <section id="replacing-postcss">
             <a href="#replacing-postcss" class="section-anchor">#</a>
@@ -247,12 +293,14 @@
                 <dt>Add vendor prefixes to CSS rules using values from Can I Use.</dt>
                 <dd>
                     Vendor prefixes are no longer needed for most use cases.
-                    The <code>:fullscreen</code> pseudo-class shown in the example now <a href="https://caniuse.com/mdn-css_selectors_fullscreen">works across browsers unprefixed</a>.
+                    The <code>:fullscreen</code> pseudo-class shown in the example now <a
+                        href="https://caniuse.com/mdn-css_selectors_fullscreen">works across browsers unprefixed</a>.
                 </dd>
                 <dt>Convert modern CSS into something most browsers can understand.</dt>
                 <dd>
                     The modern CSS you want to use is most likely already supported.
-                    The <code>color: oklch()</code> rule shown in the example now <a href="https://caniuse.com/?search=oklch">works across browsers</a>.
+                    The <code>color: oklch()</code> rule shown in the example now <a
+                        href="https://caniuse.com/?search=oklch">works across browsers</a>.
                 </dd>
                 <dt>CSS Modules</dt>
                 <dd>
@@ -260,29 +308,41 @@
                 </dd>
                 <dt>Enforce consistent conventions and avoid errors in your stylesheets with stylelint.</dt>
                 <dd>
-                    The <a href="https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint">vscode-stylelint extension</a> can be added into Visual Studio Code to get the same linting at develop time,
+                    The <a
+                        href="https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint">vscode-stylelint
+                        extension</a> can be added into Visual Studio Code to get the same linting at develop time,
                     without needing it to be baked into a build step.
                 </dd>
             </dl>
-            <p><strong>Bottom line:</strong> Microsoft's dropping of support for IE11 combined with the continuing improvements of evergreen browsers has made PostCSS largely unnecessary.</p>
+            <p><strong>Bottom line:</strong> Microsoft's dropping of support for IE11 combined with the continuing
+                improvements of evergreen browsers has made PostCSS largely unnecessary.</p>
         </section>
         <section id="replacing-sass">
             <a href="#replacing-sass" class="section-anchor">#</a>
             <h2>Replacing SASS</h2>
-            <p>Similarly to PostCSS, let's go over the main feature set of <a href="https://sass-lang.com/guide/">SASS</a>:</p>
+            <p>Similarly to PostCSS, let's go over the main feature set of <a
+                    href="https://sass-lang.com/guide/">SASS</a>:</p>
             <dl>
                 <dt>Variables</dt>
-                <dd>Replaced by <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS custom properties</a>.</dd>
+                <dd>Replaced by <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS custom
+                        properties</a>.</dd>
                 <dt>Nesting</dt>
-                <dd>CSS nesting is <a href="https://caniuse.com/css-nesting">newly available</a> across major browsers, which may be good enough depending on your browser support needs.</dd>
+                <dd>CSS nesting is <a href="https://caniuse.com/css-nesting">newly available</a> across major browsers,
+                    which may be good enough depending on your browser support needs.</dd>
                 <dt>Modules</dt>
-                <dd>Can be approximated by a combination of <code>@import</code>, CSS variables, and the scoping approaches described above.</dd>
+                <dd>Can be approximated by a combination of <code>@import</code>, CSS variables, and the scoping
+                    approaches described above.</dd>
                 <dt>Mixins</dt>
-                <dd>Regrettably the <a href="https://github.com/w3c/csswg-drafts/issues/9350">CSS mixins</a> feature that will replace this is still in specification.</dd>
+                <dd>Regrettably the <a href="https://github.com/w3c/csswg-drafts/issues/9350">CSS mixins</a> feature
+                    that will replace this is still in specification.</dd>
                 <dt>Operators</dt>
-                <dd>In many cases can be replaced by the built-in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">calc()</a> feature.</dd>
+                <dd>In many cases can be replaced by the built-in <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">calc()</a> feature.</dd>
             </dl>
-            <p><strong>Bottom-line:</strong> SASS is a lot more powerful than PostCSS, and while many of its features have a vanilla alternative it is not as easy to replace entirely. YMMV whether the added complexity of the SASS preprocessor is worth the additional abilities.</p>
+            <p><strong>Bottom-line:</strong> SASS is a lot more powerful than PostCSS, and while many of its features
+                have a vanilla alternative it is not as easy to replace entirely. YMMV whether the added complexity of
+                the SASS preprocessor is worth the additional abilities.</p>
         </section>
         <section>
             <hr />
@@ -300,4 +360,5 @@
         <x-analytics></x-analytics>
     </footer>
 </body>
+
 </html>

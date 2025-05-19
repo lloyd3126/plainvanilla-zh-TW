@@ -1,27 +1,34 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <title>Plain Vanilla - Sites</title>
+    <title>製作一般網站｜Plain Vanilla zh-TW</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="An explainer for making web sites using only vanilla techniques.">
     <link rel="icon" href="../favicon.ico">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <link rel="stylesheet" href="../index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <noscript><strong>Please enable JavaScript to view this page correctly.</strong></noscript>
     <script type="module" src="../index.js"></script>
     <header>
-        <h1>Plain Vanilla Sites</h1>
+        <h1>Plain Vanilla zh-TW</h1>
         <nav>
             <ol>
-                <li><a href="../index.html">Welcome</a></li>
-                <li><a href="components.html">Components</a></li>
-                <li><a href="styling.html">Styling</a></li>
-                <li>Sites</li>
-                <li><a href="applications.html">Applications</a></li>
-                <li><a href="../blog/">Blog</a></li>
+                <li><a href="../index.html">首頁</a></li>
+                <li><a href="components.html">如何建立元件</a></li>
+                <li><a href="styling.html">如何設定樣式</a></li>
+                <li>製作一般網站</li>
+                <li><a href="applications.html">製作互動網站</a></li>
+                <li><a href="../blog/">網誌</a></li>
             </ol>
         </nav>
     </header>
@@ -30,31 +37,44 @@
             <a href="#pages" class="section-anchor">#</a>
             <h2>Pages</h2>
             <p>For content-driven websites with low interactivity a multi-page approach is best suited.</p>
-            <p>Abandoning the use of frameworks means writing out those HTML pages from scratch. For this it is important to understand what a good minimal HTML page should look like.</p>
+            <p>Abandoning the use of frameworks means writing out those HTML pages from scratch. For this it is
+                important to understand what a good minimal HTML page should look like.</p>
             <x-code-viewer src="./examples/sites/page/example.html"></x-code-viewer>
             <p>An explanation of each element:</p>
             <dl>
                 <dt><code>&lt;!doctype html&gt;</code></dt>
                 <dd>The doctype is required to have the HTML parsed as HTML5 instead of an older version.</dd>
                 <dt><code>&lt;html lang="en"&gt;</code></dt>
-                <dd>The lang attribute is recommended to make sure browsers don't misdetect the language used in the page.</dd>
+                <dd>The lang attribute is recommended to make sure browsers don't misdetect the language used in the
+                    page.</dd>
                 <dt><code>&lt;head&gt;&lt;title&gt;</code></dt>
-                <dd>The title will be used for the browser tab and when bookmarking, making it effectively non-optional.</dd>
+                <dd>The title will be used for the browser tab and when bookmarking, making it effectively non-optional.
+                </dd>
                 <dt><code>&lt;head&gt;&lt;meta charset="utf-8"&gt;</code></dt>
                 <dd>
-                    This is borderline unnecessary, but just to make sure a page is properly interpreted as UTF-8 this line should be included.
+                    This is borderline unnecessary, but just to make sure a page is properly interpreted as UTF-8 this
+                    line should be included.
                     Obviously the editor used to make the page should equally be set to UTF-8.
                 </dd>
                 <dt><code>&lt;head&gt;&lt;meta name="viewport"&gt;</code></dt>
                 <dd>The viewport meta is necessary to have mobile-friendly layout.</dd>
                 <dt><code>&lt;head&gt;&lt;link rel="stylesheet" href="index.css"&gt;</code></dt>
-                <dd>By convention the stylesheet is loaded from <code>&lt;head&gt;</code> in a blocking way to ensure the page's markup does not have a flash of unstyled content.</dd>
+                <dd>By convention the stylesheet is loaded from <code>&lt;head&gt;</code> in a blocking way to ensure
+                    the page's markup does not have a flash of unstyled content.</dd>
                 <dt><code>&lt;body&gt;&lt;noscript&gt;</code></dt>
-                <dd>Because web components don't work without JavaScript it is good practice to include a noscript warning to users that have JavaScript disabled. This warning only needs to be on pages with web components. If you don't want to show anything except the warning, see the template pattern below.</dd>
+                <dd>Because web components don't work without JavaScript it is good practice to include a noscript
+                    warning to users that have JavaScript disabled. This warning only needs to be on pages with web
+                    components. If you don't want to show anything except the warning, see the template pattern below.
+                </dd>
                 <dt><code>&lt;body&gt;&lt;header/main/footer&gt;</code></dt>
-                <dd>The page's markup should be organized using <a href="https://developer.mozilla.org/en-US/blog/aria-accessibility-html-landmark-roles/">HTML landmarks</a>. Landmarks when used properly help organize the page into logical blocks and make the page's structure accessible. Because they are standards-based, compatibility with present and future accessibility products is more likely.</dd>
+                <dd>The page's markup should be organized using <a
+                        href="https://developer.mozilla.org/en-US/blog/aria-accessibility-html-landmark-roles/">HTML
+                        landmarks</a>. Landmarks when used properly help organize the page into logical blocks and make
+                    the page's structure accessible. Because they are standards-based, compatibility with present and
+                    future accessibility products is more likely.</dd>
                 <dt><code>&lt;body&gt;&lt;script type="module" src="index.js"&gt;</code></dt>
-                <dd>The main JavaScript file is at the end, and will bootstrap the web components as explained on the components page.</dd>
+                <dd>The main JavaScript file is at the end, and will bootstrap the web components as explained on the
+                    components page.</dd>
             </dl>
             <p>
                 Pages that should only show their contents if JavaScript is enabled can use this template pattern:
@@ -68,48 +88,68 @@
                     <x-code-viewer src="./examples/sites/page/index.js" name=""></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
-            
+
             <h3>Semantics matter</h3>
 
             <p>
                 The markup in the page should default to using semantic HTML, to improve accessibility and SEO.
-                Web components should only be used in those cases where the level of complexity and interaction exceeds the capabilities of plain HTML markup.
+                Web components should only be used in those cases where the level of complexity and interaction exceeds
+                the capabilities of plain HTML markup.
             </p>
             <p>
                 Familiarize yourself with these aspects of semantic HTML:
             </p>
             <dl>
-                <dt><a href="https://developer.mozilla.org/en-US/blog/aria-accessibility-html-landmark-roles/">Landmarks</a></dt>
+                <dt><a
+                        href="https://developer.mozilla.org/en-US/blog/aria-accessibility-html-landmark-roles/">Landmarks</a>
+                </dt>
                 <dd>
-                    As mentioned above, landmarks are the backbone of a page's structure and deliver good structure and accessibility by default.
+                    As mentioned above, landmarks are the backbone of a page's structure and deliver good structure and
+                    accessibility by default.
                 </dd>
                 <dt><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Elements</a></dt>
                 <dd>
-                    Being familiar with HTML's set of built-in elements saves time, 
-                    both in avoiding the need for custom elements and in easing implementation of the custom elements that are needed.
+                    Being familiar with HTML's set of built-in elements saves time,
+                    both in avoiding the need for custom elements and in easing implementation of the custom elements
+                    that are needed.
                     When properly used HTML elements are accessibly by default.
                 </dd>
                 <dt><a href="https://developer.mozilla.org/en-US/docs/Learn/Forms">Forms</a></dt>
                 <dd>
                     HTML's built-in forms can implement many interactivity use cases when used to their full extent.
-                    Be aware of capabilities like 
-                    <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types">rich input types</a>, 
-                    <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">client-side validation</a> and 
-                    <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/UI_pseudo-classes">UI pseudo classes</a>.
-                    When a suitable form input type for a use case cannot be found, consider using <a href="https://web.dev/articles/more-capable-form-controls">form-associated custom elements</a> 
-                    but be aware of the <a href="https://caniuse.com/mdn-api_elementinternals">browser support for ElementInternals</a>.
+                    Be aware of capabilities like
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/HTML5_input_types">rich input
+                        types</a>,
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">client-side
+                        validation</a> and
+                    <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/UI_pseudo-classes">UI pseudo
+                        classes</a>.
+                    When a suitable form input type for a use case cannot be found, consider using <a
+                        href="https://web.dev/articles/more-capable-form-controls">form-associated custom elements</a>
+                    but be aware of the <a href="https://caniuse.com/mdn-api_elementinternals">browser support for
+                        ElementInternals</a>.
                 </dd>
             </dl>
 
             <h3>Favicons</h3>
 
             <p>
-                There is one thing that you will probably want to add to the HTML that is not standards-based and that is a reference to a favicon:
+                There is one thing that you will probably want to add to the HTML that is not standards-based and that
+                is a reference to a favicon:
             </p>
             <ul>
-                <li>To keep it really simple, put a <code>favicon.ico</code> in the root path of the site and link to it from your HTML: <code>&lt;link rel="icon" href="favicon.ico"&gt;</code></li>
-                <li>Consider <a href="https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df">SVG favicons</a>, but be aware that Safari does not support them. <a href="https://css-tricks.com/svg-favicons-in-action/">Embed dark mode</a> in the favicon SVG itself or use a generator like <a href="https://realfavicongenerator.net/">RealFaviconGenerator</a> for more convience.</li>
-                <li>Be aware that because favicons are not based on published web standards it is cumbersome to implement the <a href="https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7">de facto standard</a> fully.</li>
+                <li>To keep it really simple, put a <code>favicon.ico</code> in the root path of the site and link to it
+                    from your HTML: <code>&lt;link rel="icon" href="favicon.ico"&gt;</code></li>
+                <li>Consider <a
+                        href="https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df">SVG
+                        favicons</a>, but be aware that Safari does not support them. <a
+                        href="https://css-tricks.com/svg-favicons-in-action/">Embed dark mode</a> in the favicon SVG
+                    itself or use a generator like <a href="https://realfavicongenerator.net/">RealFaviconGenerator</a>
+                    for more convience.</li>
+                <li>Be aware that because favicons are not based on published web standards it is cumbersome to
+                    implement the <a
+                        href="https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7">de facto
+                        standard</a> fully.</li>
             </ul>
 
         </section>
@@ -121,68 +161,86 @@
             </p>
             <dl>
                 <dt>/</dt>
-                <dd>The project root contains the files that will not be published, such as <code>README.md</code>, <code>LICENSE</code> or <code>.gitignore</code>.</dd>
+                <dd>The project root contains the files that will not be published, such as <code>README.md</code>,
+                    <code>LICENSE</code> or <code>.gitignore</code>.
+                </dd>
                 <dt>/public</dt>
                 <dd>The public folder is published as-is, without build steps. It is the whole website.</dd>
                 <dt>/public/index.html</dt>
-                <dd>The main landing page of the website, not particularly different from the other pages, except for its path.</dd>
+                <dd>The main landing page of the website, not particularly different from the other pages, except for
+                    its path.</dd>
                 <dt>/public/index.[js/css]</dt>
                 <dd>
                     The main stylesheet and javascript. These contain the shared styles and code for all pages.
                     <code>index.js</code> loads and registers the web components used on all pages.
-                    By sharing these across multiple HTML pages unnecessary duplication and inconsistencies between pages can be avoided.
+                    By sharing these across multiple HTML pages unnecessary duplication and inconsistencies between
+                    pages can be avoided.
                 </dd>
                 <dt>/public/pages/<em>[name]</em>.html</dt>
                 <dd>
-                    All of the site's other pages, each including the same <code>index.js</code> and <code>index.css</code>,
+                    All of the site's other pages, each including the same <code>index.js</code> and
+                    <code>index.css</code>,
                     and ofcourse containing the content directly as markup in the HTML, leveraging the web components.
                 </dd>
                 <dt>/public/components/<em>[name]</em>/</dt>
                 <dd>
                     One folder per web component, containing a <code>[name].js</code> and <code>[name].css</code> file.
-                    The <code>.js</code> file is imported into the <code>index.js</code> file to register the web component.
-                    The <code>.css</code> file is imported into the global <code>index.css</code> or in the shadow DOM, as explained on the styling page.
+                    The <code>.js</code> file is imported into the <code>index.js</code> file to register the web
+                    component.
+                    The <code>.css</code> file is imported into the global <code>index.css</code> or in the shadow DOM,
+                    as explained on the styling page.
                 </dd>
                 <dt>/public/lib/</dt>
-                <dd>For all external libraries used as dependencies. See below for how to add and use these dependencies.</dd>
+                <dd>For all external libraries used as dependencies. See below for how to add and use these
+                    dependencies.</dd>
                 <dt>/public/styles/</dt>
                 <dd>The global styles referenced from <code>index.css</code>, as explained on the styling page.</dd>
             </dl>
             <p>
                 Configuration files for a smoother workflow in programmer's editors also belong in the project's root.
-                Most of the development experience of a framework-based project is possible without a build step through editor extensions.
-                See the <a href="../blog/articles/2024-10-20-editing-plain-vanilla/">Visual Studio Code setup</a> for this site for an example.
+                Most of the development experience of a framework-based project is possible without a build step through
+                editor extensions.
+                See the <a href="../blog/articles/2024-10-20-editing-plain-vanilla/">Visual Studio Code setup</a> for
+                this site for an example.
             </p>
         </section>
         <section id="routing">
             <a href="#routing" class="section-anchor">#</a>
             <h2>Routing</h2>
             <p>
-                The old-school routing approach of standard HTML pages and <code>&lt;a&gt;</code> tags to link them together has the advantages of being easily indexed by search engines
+                The old-school routing approach of standard HTML pages and <code>&lt;a&gt;</code> tags to link them
+                together has the advantages of being easily indexed by search engines
                 and fully supporting browser history and bookmarking functionality out of the box. 😉
             </p>
         </section>
         <section id="dependencies">
             <a href="#dependencies" class="section-anchor">#</a>
             <h2>Dependencies</h2>
-            <p>At some point you may want to pull in third-party libraries. Without npm and a bundler this is still possible.</p>
+            <p>At some point you may want to pull in third-party libraries. Without npm and a bundler this is still
+                possible.</p>
             <h3>Unpkg</h3>
             <p>
                 To use libraries without a bundler they need to be prebuilt in either ESM or UMD format.
                 These libraries can be obtained from unpkg.com:
             </p>
             <ol>
-                <li>Browse to <code>unpkg.com/[library]/</code> (trailing slash matters), for example <a href="https://unpkg.com/microlight/" target="_blank" rel="noopener">unpkg.com/microlight/</a></li>
-                <li>Look for and download the library js file, which may be in a subfolder, like <code>dist</code>, <code>esm</code> or <code>umd</code></li>
+                <li>Browse to <code>unpkg.com/[library]/</code> (trailing slash matters), for example <a
+                        href="https://unpkg.com/microlight/" target="_blank" rel="noopener">unpkg.com/microlight/</a>
+                </li>
+                <li>Look for and download the library js file, which may be in a subfolder, like <code>dist</code>,
+                    <code>esm</code> or <code>umd</code>
+                </li>
                 <li>Place the library file in the <code>lib/</code> folder</li>
             </ol>
             <p>Alternatively, the library may be loaded directly from CDN.</p>
 
             <h3>UMD</h3>
             <p>
-                The <a href="https://jameshfisher.com/2020/10/04/what-are-umd-modules/">UMD module format</a> is an older format for libraries loaded from script tag,
+                The <a href="https://jameshfisher.com/2020/10/04/what-are-umd-modules/">UMD module format</a> is an
+                older format for libraries loaded from script tag,
                 and it is the most widely supported, especially among older libraries.
-                It can be recognized by having <code>typeof define === 'function' && define.amd</code> somewhere in the library JS.
+                It can be recognized by having <code>typeof define === 'function' && define.amd</code> somewhere in the
+                library JS.
             </p>
             <p>To include it in your project:</p>
             <ol>
@@ -192,23 +250,30 @@
 
             <h3>ESM</h3>
             <p>
-                The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ESM module format</a> (also known as JavaScript modules) is the format specified by the ECMAScript standard, and newer or well-behaved libraries will typically provide an ESM build.
+                The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">ESM module
+                    format</a> (also known as JavaScript modules) is the format specified by the ECMAScript standard,
+                and newer or well-behaved libraries will typically provide an ESM build.
                 It can be recognized by the use of the <code>export</code> keyword.
             </p>
             <p>To include it in your project:</p>
             <ul>
-                <li>Load it from CDN:<br><code>import('https://unpkg.com/web-vitals@4.2.2/dist/web-vitals.js').then((webVitals) => ...)</code></li>
+                <li>Load it from
+                    CDN:<br><code>import('https://unpkg.com/web-vitals@4.2.2/dist/web-vitals.js').then((webVitals) => ...)</code>
+                </li>
                 <li>Or load it from a local copy:<br><code>import webVitals from 'lib/web-vitals.js'</code></li>
             </ul>
 
             <h3>imports.js</h3>
             <p>
-                To neatly organize libraries and separate them from the rest of the codebase, they can be loaded and exported from an <code>imports.js</code> file.
-                For example, here is a page that uses a UMD build of <a href="https://day.js.org/">Day.js</a> and an ESM build of <a href="https://github.com/GoogleChrome/web-vitals">web-vitals</a>:
+                To neatly organize libraries and separate them from the rest of the codebase, they can be loaded and
+                exported from an <code>imports.js</code> file.
+                For example, here is a page that uses a UMD build of <a href="https://day.js.org/">Day.js</a> and an ESM
+                build of <a href="https://github.com/GoogleChrome/web-vitals">web-vitals</a>:
             </p>
             <iframe src="./examples/sites/imports/index.html" title="imports.js example" height="100"></iframe>
             <p>The text is rendered by the <code>&lt;x-metrics&gt;</code> component:</p>
-            <x-code-viewer src="./examples/sites/imports/components/metrics.js" name="components/metrics.js"></x-code-viewer>
+            <x-code-viewer src="./examples/sites/imports/components/metrics.js"
+                name="components/metrics.js"></x-code-viewer>
             <p>In the <code>/lib</code> folder we find these files:</p>
             <ul>
                 <li>web-vitals.js - the ESM build of web-vitals</li>
@@ -239,7 +304,8 @@
                     <x-code-viewer src="./examples/sites/imports/index.js" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="metrics.js">
-                    <x-code-viewer src="./examples/sites/imports/components/metrics.js" name="components/metrics.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/sites/imports/components/metrics.js"
+                        name="components/metrics.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="imports.js">
                     <x-code-viewer src="./examples/sites/imports/lib/imports.js" name="lib/imports.js"></x-code-viewer>
@@ -249,10 +315,13 @@
             <p>Regrettably not all libraries have a UMD or ESM build, but more and more do.</p>
 
             <h3>Import Maps</h3>
-            
+
             <p>
-                An alternative to the <code>imports.js</code> approach are <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap">import maps</a>.
-                These define a unique mapping between importable module name and corresponding library file in a special script tag in the HTML head.
+                An alternative to the <code>imports.js</code> approach are <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap">import
+                    maps</a>.
+                These define a unique mapping between importable module name and corresponding library file in a special
+                script tag in the HTML head.
                 This allows a more traditional module-based import syntax in the rest of the codebase.
             </p>
             <p>The previous example adapted to use import maps:</p>
@@ -261,29 +330,36 @@
                     <x-code-viewer src="./examples/sites/importmap/index.html" name=""></x-code-viewer>
                 </x-tab>
                 <x-tab title="module.js">
-                    <x-code-viewer src="./examples/sites/importmap/lib/dayjs/module.js" name="lib/dayjs/module.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/sites/importmap/lib/dayjs/module.js"
+                        name="lib/dayjs/module.js"></x-code-viewer>
                 </x-tab>
                 <x-tab title="metrics.js">
-                    <x-code-viewer src="./examples/sites/importmap/components/metrics.js" name="components/metrics.js"></x-code-viewer>
+                    <x-code-viewer src="./examples/sites/importmap/components/metrics.js"
+                        name="components/metrics.js"></x-code-viewer>
                 </x-tab>
             </x-tab-panel>
             <p>Some things to take into account when using import maps:</p>
             <ul>
                 <li>
-                    Import maps can only map to ESM modules, so for UMD libraries a wrapper must be provided, 
+                    Import maps can only map to ESM modules, so for UMD libraries a wrapper must be provided,
                     as with the <code>module.js</code> wrapper for <code>dayjs</code> in this example.
                 </li>
                 <li>
-                    External import maps of the form <code>&lt;script type="importmap" src="importmap.json"&gt;</code> are <a href="https://github.com/WICG/import-maps/issues/235">not yet supported</a> in all browsers.
+                    External import maps of the form <code>&lt;script type="importmap" src="importmap.json"&gt;</code>
+                    are <a href="https://github.com/WICG/import-maps/issues/235">not yet supported</a> in all browsers.
                     This means the import map must be duplicated in every HTML page.
                 </li>
                 <li>
-                    The import map must be defined before the <code>index.js</code> script is loaded, preferably from the <code>&lthead&gt;</code> section.
+                    The import map must be defined before the <code>index.js</code> script is loaded, preferably from
+                    the <code>&lthead&gt;</code> section.
                 </li>
                 <li>
-                    Import maps can be used to more easily load libraries from a <code>node_modules</code> folder or from a CDN.
-                    <a href="https://generator.jspm.io">JSPM generator</a> can be used to quickly create an import map for CDN dependencies.
-                    Do remain aware however that adding such external dependencies makes your vanilla codebase rely on the continued availability of that service.
+                    Import maps can be used to more easily load libraries from a <code>node_modules</code> folder or
+                    from a CDN.
+                    <a href="https://generator.jspm.io">JSPM generator</a> can be used to quickly create an import map
+                    for CDN dependencies.
+                    Do remain aware however that adding such external dependencies makes your vanilla codebase rely on
+                    the continued availability of that service.
                 </li>
             </ul>
         </section>
@@ -294,29 +370,48 @@
             <ul>
                 <li>Everything on this site works in current versions of Safari, Chrome, Edge and Firefox.</li>
                 <li>
-                    Everything on this site has 95% support or more on <a href="https://caniuse.com">caniuse.com</a>, 
-                    with the exception of <a href="https://caniuse.com/import-maps">Import Maps</a> (92%), <a href="https://caniuse.com/declarative-shadow-dom">Declarative Shadow DOM</a> (89%), and <a href="https://caniuse.com/css-nesting">CSS Nesting</a> (88%), and it won't be long before those catch up.
+                    Everything on this site has 95% support or more on <a href="https://caniuse.com">caniuse.com</a>,
+                    with the exception of <a href="https://caniuse.com/import-maps">Import Maps</a> (92%), <a
+                        href="https://caniuse.com/declarative-shadow-dom">Declarative Shadow DOM</a> (89%), and <a
+                        href="https://caniuse.com/css-nesting">CSS Nesting</a> (88%), and it won't be long before those
+                    catch up.
                 </li>
                 <li>
-                    That in turn means you can safely rely on <a href="https://caniuse.com/http2">HTTP/2</a>, <a href="https://caniuse.com/html5semantic">HTML5 semantic elements</a>, <a href="https://caniuse.com/custom-elementsv1">Custom Elements</a>, 
-                    <a href="https://caniuse.com/template">Templates</a>, <a href="https://caniuse.com/shadowdomv1">Shadow DOM</a>, <a href="https://caniuse.com/mdn-api_mutationobserver">MutationObserver</a>, 
-                    <a href="https://caniuse.com/customevent">CustomEvent</a>, <a href="https://caniuse.com/mdn-api_formdata">FormData</a>, and the <a href="https://caniuse.com/element-closest">Element.closest</a> API.
+                    That in turn means you can safely rely on <a href="https://caniuse.com/http2">HTTP/2</a>, <a
+                        href="https://caniuse.com/html5semantic">HTML5 semantic elements</a>, <a
+                        href="https://caniuse.com/custom-elementsv1">Custom Elements</a>,
+                    <a href="https://caniuse.com/template">Templates</a>, <a
+                        href="https://caniuse.com/shadowdomv1">Shadow DOM</a>, <a
+                        href="https://caniuse.com/mdn-api_mutationobserver">MutationObserver</a>,
+                    <a href="https://caniuse.com/customevent">CustomEvent</a>, <a
+                        href="https://caniuse.com/mdn-api_formdata">FormData</a>, and the <a
+                        href="https://caniuse.com/element-closest">Element.closest</a> API.
                 </li>
                 <li>
-                    It's also safe to use <a href="https://caniuse.com/es6-module">JavaScript Modules</a>, <a href="https://caniuse.com/es6">ECMAScript 6 / 2015</a>, 
-                    <a href="https://caniuse.com/async-functions,object-values,object-entries,mdn-javascript_builtins_object_getownpropertydescriptors,pad-start-end,mdn-javascript_grammar_trailing_commas_trailing_commas_in_functions">ECMAScript 8 / 2017</a>
-                    and <a href="https://caniuse.com/?feats=mdn-javascript_operators_optional_chaining,mdn-javascript_operators_nullish_coalescing,mdn-javascript_builtins_globalthis,es6-module-dynamic-import,bigint,mdn-javascript_builtins_promise_allsettled,mdn-javascript_builtins_string_matchall,mdn-javascript_statements_export_namespace,mdn-javascript_operators_import_meta">ECMAScript 11 / 2020</a>.
+                    It's also safe to use <a href="https://caniuse.com/es6-module">JavaScript Modules</a>, <a
+                        href="https://caniuse.com/es6">ECMAScript 6 / 2015</a>,
+                    <a
+                        href="https://caniuse.com/async-functions,object-values,object-entries,mdn-javascript_builtins_object_getownpropertydescriptors,pad-start-end,mdn-javascript_grammar_trailing_commas_trailing_commas_in_functions">ECMAScript
+                        8 / 2017</a>
+                    and <a
+                        href="https://caniuse.com/?feats=mdn-javascript_operators_optional_chaining,mdn-javascript_operators_nullish_coalescing,mdn-javascript_builtins_globalthis,es6-module-dynamic-import,bigint,mdn-javascript_builtins_promise_allsettled,mdn-javascript_builtins_string_matchall,mdn-javascript_statements_export_namespace,mdn-javascript_operators_import_meta">ECMAScript
+                        11 / 2020</a>.
                 </li>
                 <li>
-                    In CSS you can rely on <a href="https://caniuse.com/mdn-css_at-rules_import">@import</a>, <a href="https://caniuse.com/css-variables">variables</a>, 
-                    <a href="https://caniuse.com/calc">calc()</a>, <a href="https://caniuse.com/flexbox">flexbox</a>, <a href="https://caniuse.com/css-grid">grid</a>, 
+                    In CSS you can rely on <a href="https://caniuse.com/mdn-css_at-rules_import">@import</a>, <a
+                        href="https://caniuse.com/css-variables">variables</a>,
+                    <a href="https://caniuse.com/calc">calc()</a>, <a href="https://caniuse.com/flexbox">flexbox</a>, <a
+                        href="https://caniuse.com/css-grid">grid</a>,
                     <a href="https://caniuse.com/css-display-contents">display: contents</a> and so much more.
                 </li>
             </ul>
             <p>To keep up with new web standards, keep an eye on these projects:</p>
             <ul>
-                <li><a href="https://web.dev/baseline">Baseline</a> keeps track of which features are widely available in browsers and lets you know when they are safe to use.</li>
-                <li><a href="https://web.dev/blog/interop-2024">Interop</a> is a yearly initiative between browser makers to bring new web platform features to all browsers. Consider it a preview of what will become baseline.</li>
+                <li><a href="https://web.dev/baseline">Baseline</a> keeps track of which features are widely available
+                    in browsers and lets you know when they are safe to use.</li>
+                <li><a href="https://web.dev/blog/interop-2024">Interop</a> is a yearly initiative between browser
+                    makers to bring new web platform features to all browsers. Consider it a preview of what will become
+                    baseline.</li>
             </ul>
         </section>
         <section id="deploying">
@@ -341,10 +436,12 @@
             <p>
                 Popular testing frameworks are all designed to run in build pipelines.
                 However, a plain vanilla web site has no build.
-                To test web components an old-fashioned approach can be used: testing in the browser using the Mocha framework.
+                To test web components an old-fashioned approach can be used: testing in the browser using the Mocha
+                framework.
             </p>
 
-            <p>For example, these are the live unit tests for the <code>&lt;x-tab-panel&gt;</code> component used to present tabbed source code panels on this site:</p>
+            <p>For example, these are the live unit tests for the <code>&lt;x-tab-panel&gt;</code> component used to
+                present tabbed source code panels on this site:</p>
             <iframe src="../tests/index.html" title="unit tests" loading="lazy"></iframe>
 
             <p>And for ultimate coding inception, here is that tabpanel component showing the testing source code:</p>
@@ -366,33 +463,41 @@
             <p>Some working notes on this approach:</p>
             <ul>
                 <li>
-                    The entire code for the unit tests, including the testing libraries, is isolated to a <code>public/tests/</code> subfolder.
+                    The entire code for the unit tests, including the testing libraries, is isolated to a
+                    <code>public/tests/</code> subfolder.
                     The tests will therefore be available live by adding <code>/tests</code> to the deployed site's URL.
-                    If you don't want to deploy the tests on the live website, exclude the tests folder during the deploy step.
+                    If you don't want to deploy the tests on the live website, exclude the tests folder during the
+                    deploy step.
                 </li>
                 <li>
-                    <a href="https://mochajs.org/">Mocha</a> and <a href="https://www.chaijs.com/">Chai</a> are used as test and assertion frameworks, 
+                    <a href="https://mochajs.org/">Mocha</a> and <a href="https://www.chaijs.com/">Chai</a> are used as
+                    test and assertion frameworks,
                     because they work in-browser without a build step.
                 </li>
                 <li>
-                    <a href="https://testing-library.com">DOM Testing Library</a> is used to more easily query the DOM. 
+                    <a href="https://testing-library.com">DOM Testing Library</a> is used to more easily query the DOM.
                     The <code>imports-test.js</code> file configures it for vanilla use.
                 </li>
                 <li>
-                    An important limitation is that DOM Testing Library <a href="https://github.com/testing-library/dom-testing-library/issues/413">cannot query inside shadow roots</a>.
-                    To test something inside a shadow root it is necessary to first query for the containing web component, 
+                    An important limitation is that DOM Testing Library <a
+                        href="https://github.com/testing-library/dom-testing-library/issues/413">cannot query inside
+                        shadow roots</a>.
+                    To test something inside a shadow root it is necessary to first query for the containing web
+                    component,
                     get a handle to its <code>shadowRoot</code> property, and then query inside of that.
                 </li>
                 <li>
                     Web Components initialize asynchronously, which can make them tricky to test.
-                    Use the <a href="https://testing-library.com/docs/dom-testing-library/api-async">async methods</a> of DOM Testing Library.
+                    Use the <a href="https://testing-library.com/docs/dom-testing-library/api-async">async methods</a>
+                    of DOM Testing Library.
                 </li>
             </ul>
         </section>
         <section id="example">
             <a href="#example" class="section-anchor">#</a>
             <h2>Example</h2>
-            <p>This website is the example. Check out the <a href="https://github.com/jsebrech/plainvanilla/">project on GitHub</a>.</p>
+            <p>This website is the example. Check out the <a href="https://github.com/jsebrech/plainvanilla/">project on
+                    GitHub</a>.</p>
         </section>
         <section>
             <hr />
@@ -410,4 +515,5 @@
         <x-analytics></x-analytics>
     </footer>
 </body>
+
 </html>
